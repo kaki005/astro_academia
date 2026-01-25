@@ -1,35 +1,44 @@
 export const experiences = [
 	{
-		company: '',
-		time: '',
-		title: '',
-		location: '',
+		title: "Software Engineer",
+		company: "Crev",
+		time: "2021-2024",
+		location: 'Osaka, Japan',
 		description: '',
 	},
-	// {
-	// 	company: 'Radium Institute (Institut du Radium)',
-	// 	time: '1914 - 1934',
-	// 	title: 'Director',
-	// 	location: 'Paris, France',
-	// 	description: 'Led groundbreaking studies on radioactivity and mentored future Nobel Prize laureates.',
-	// },
+
+	{
+		company: 'SANKEN',
+		time: '2024-Present',
+		title: 'Specially Appointed Researcher',
+		location: 'Osaka, Japan',
+		description: '',
+	},
+
 ];
 
 export const education = [
 	{
-		school: '',
-		time: '',
-		degree: '',
-		location: '',
-		description: '',
+		school: 'The University of Osaka',
+		time: '2020.04-2024.03',
+		degree: 'Bachelor',
+		location: 'Osaka, Japan',
+		description: 'Department of Electronic and Information Engineering, School of Engineering',
 	},
-	// {
-	// 	school: 'University of Paris',
-	// 	time: '1891 - 1895',
-	// 	degree: 'Master’s in Physics and Mathematics',
-	// 	location: 'Paris, France',
-	// 	description: 'Graduated at the top of her class in physics and second in mathematics.',
-	// },
+	{
+		school: 'The University of Osaka',
+		time: '2024.04-2026.03',
+		degree: 'Master',
+		location: 'Osaka, Japan',
+		description: 'Graduate School of Information Science and Technology',
+	},
+	{
+		school: 'The University of Osaka',
+		time: '2026.04-Present',
+		degree: 'Ph.D',
+		location: 'Osaka, Japan',
+		description: 'Graduate School of Information Science and Technology',
+	},
 ];
 
 export const skills = [
@@ -37,10 +46,7 @@ export const skills = [
 		title: '',
 		description: '',
 	},
-	// {
-	// 	title: 'Experimental Techniques',
-	// 	description: 'Spectroscopy, Isolation of Radioactive Elements, Radiation Measurement',
-	// },
+
 ];
 
 export const publications = [
@@ -51,13 +57,5 @@ export const publications = [
 		time: '',
 		link: '',
 		abstract: '',
-	},
-	// {
-	// 	title: 'The Radiation of Uranium Compounds',
-	// 	authors: 'Marie Curie',
-	// 	journal: 'Comptes Rendus de l’Académie des Sciences',
-	// 	time: '1898',
-	// 	link: '#',
-	// 	abstract: 'Early research leading to the identification of uranium’s radioactive properties.',
-	// },
+	}
 ];

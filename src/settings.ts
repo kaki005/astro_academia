@@ -1,8 +1,8 @@
 export const profile = {
-	fullName: 'Your Name',
-	title: '',
-	institute: '',
-	author_name: '', // Author name to be highlighted in the papers section
+	fullName: 'Soshi Kakio',
+	title: 'a',
+	institute: 'SANKEN, The university of Osaka',
+	author_name: 'Soshi Kakio', // Author name to be highlighted in the papers section
 	research_areas: [
 		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
 	],
@@ -10,16 +10,16 @@ export const profile = {
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
-	email: '',
-	linkedin: '',
+	email: 'skakio88@sanken.osaka-u.ac.jp',
+	linkedin: 'https://www.linkedin.com/feed/',
 	x: 'https://www.x.com/',
 	bluesky: '',
-	github: '',
+	github: 'https://github.com/kaki005',
 	gitlab: '',
 	scholar: '',
 	inspire: '',
 	arxiv: '',
-	orcid: '',
+	orcid: 'https://orcid.org/my-orcid?orcid=0009-0006-6200-3858',
 }
 
 export const template = {
@@ -30,7 +30,7 @@ export const template = {
 	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
 	excerptLength: 200,
 	postPerPage: 5,
-    base: '' // Repository name starting with /
+	base: '' // Repository name starting with /
 }
 
 export const seo = {
