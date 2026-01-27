@@ -10,21 +10,6 @@ export const profile = {
 	],
 }
 
-
-// Set equal to an empty string to hide the icon that you don't want to display
-export const social = {
-	email: 'skakio88@sanken.osaka-u.ac.jp',
-	linkedin: 'https://www.linkedin.com/feed/',
-	x: 'https://www.x.com/',
-	bluesky: '',
-	github: 'https://github.com/kaki005',
-	gitlab: '',
-	scholar: '',
-	inspire: '',
-	arxiv: '',
-	orcid: 'https://orcid.org/my-orcid?orcid=0009-0006-6200-3858',
-}
-
 const isPublish = true
 export const template = {
 	website_url: isPublish ? 'https://kaki005.github.io/' : 'https://localhost:4321',
