@@ -1,4 +1,5 @@
-export const experiences = [
+import type { Experience, Education, Skill, Publication } from "@/types/cv";
+export const experiences: Experience[] = [
 	{
 		title: "Software Engineer",
 		company: "Crev",
@@ -17,7 +18,7 @@ export const experiences = [
 
 ];
 
-export const education = [
+export const education: Education[] = [
 	{
 		school: 'The University of Osaka',
 		time: '2020.04-2024.03',
@@ -41,20 +42,22 @@ export const education = [
 	},
 ];
 
-export const skills = [
+export const skills: Skill[] = [
 	{
 		title: '',
 		description: '',
 	},
 ];
 
-export const publications = [
+export const publications: Publication[] = [
 	{
 		title: 'Multi-Aspect Mining and Anomaly Detection for Heterogeneous Tensor Streams',
 		authors: 'Soshi Kakio, Yasuko Matsubara, Ren Fujiwara, Yasushi Sakurai',
-		journal: "Proceedings of the ACM Web Conference 2026 (WWW '26), April 13--17, 2026, Dubai, United Arab Emirates",
-		time: '2026',
-		link: 'https://github.com/kaki005/HeteroComp',
+		journal: "Proceedings of the ACM Web Conference 2026 (WWW '26)",
+		time: 'April 13--17, 2026',
+		location: "Dubai, United Arab Emirates",
+		link: "",
+		git_url: 'https://github.com/kaki005/HeteroComp',
 		abstract: "Analysis and anomaly detection in event tensor streams consisting of timestamps and multiple attributes —such as communication logs(time, IP address, packet length)—are essential tasks in data mining. " +
 			"While existing tensor decomposition and anomaly detection methods provide useful insights, they face the following two limitations. " +
 			"(i) They cannot handle heterogeneous tensor streams, which comprises both categorical attributes(e.g., IP address) and continuous attributes(e.g., packet length).They typically require either discretizing continuous attributes or treating categorical attributes as continuous, both of which distort the underlying statistical properties of the data.Furthermore, incorrect assumptions about the distribution family of continuous attributes often degrade the model’s performance. " +

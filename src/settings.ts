@@ -1,4 +1,3 @@
-// 環境変数を見て、GitHub Actions 上で実行されているか判定する
 export const profile = {
 	fullName: 'Soshi Kakio',
 	shortBio: 'working on data mining research',
@@ -10,9 +9,8 @@ export const profile = {
 	],
 }
 
-const isPublish = true
 export const template = {
-	website_url: isPublish ? 'https://kaki005.github.io/' : 'https://localhost:4321',
+	website_url: 'https://kaki005.github.io/',
 	menu_left: false,
 	transitions: true,
 	lightTheme: 'light', // Select one of the Daisy UI Themes or create your own

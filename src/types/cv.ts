@@ -24,8 +24,10 @@ export interface Publication {
   authors: string;
   journal: string;
   time: string;
+  location: string;
   link?: string;
   abstract?: string;
+  git_url: string;
 }
 
 export function isExperience(element: Experience | Education): element is Experience {
