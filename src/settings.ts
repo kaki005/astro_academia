@@ -1,3 +1,4 @@
+// 環境変数を見て、GitHub Actions 上で実行されているか判定する
 export const profile = {
 	fullName: 'Soshi Kakio',
 	title: 'a',
@@ -7,6 +8,7 @@ export const profile = {
 		{ title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
 	],
 }
+
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
@@ -22,16 +24,16 @@ export const social = {
 	orcid: 'https://orcid.org/my-orcid?orcid=0009-0006-6200-3858',
 }
 
+const isPublish = false
 export const template = {
-	// website_url: 'https://localhost:4321', // Astro needs to know your site’s deployed URL to generate a sitemap. It must start with http:// or https://
-	website_url: 'https://kaki005.github.io/astro_academia/', // Astro needs to know your site’s deployed URL to generate a sitemap. It must start with http:// or https://
+	website_url: isPublish ? 'https://kaki005.github.io/' : 'https://localhost:4321',
 	menu_left: false,
 	transitions: true,
 	lightTheme: 'light', // Select one of the Daisy UI Themes or create your own
 	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
 	excerptLength: 200,
 	postPerPage: 5,
-	base: '' // Repository name starting with /
+	base: 'astro_academia' // Repository name starting with /
 }
 
 export const seo = {
