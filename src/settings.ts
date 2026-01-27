@@ -1,11 +1,12 @@
 // 環境変数を見て、GitHub Actions 上で実行されているか判定する
 export const profile = {
 	fullName: 'Soshi Kakio',
-	title: 'a',
+	shortBio: 'working on data mining research',
+	title: '',
 	institute: 'SANKEN, The university of Osaka',
 	author_name: 'Soshi Kakio', // Author name to be highlighted in the papers section
 	research_areas: [
-		{ title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
+		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
 	],
 }
 
@@ -24,7 +25,7 @@ export const social = {
 	orcid: 'https://orcid.org/my-orcid?orcid=0009-0006-6200-3858',
 }
 
-const isPublish = false
+const isPublish = true
 export const template = {
 	website_url: isPublish ? 'https://kaki005.github.io/' : 'https://localhost:4321',
 	menu_left: false,
@@ -39,5 +40,5 @@ export const template = {
 export const seo = {
 	default_title: 'Astro Academia',
 	default_description: 'Astro Academia is a template for academic websites.',
-	default_image: '/images/astro-academia.png',
+	default_image: '/social-preview.png',
 }
