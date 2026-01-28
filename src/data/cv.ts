@@ -1,45 +1,14 @@
-import type { Experience, Education, Skill, Publication } from "@/types/cv";
+import { Experience, Education, ELocationId, FacurityId, ERoleId } from "@/types/cv";
+import type { Skill, Publication } from "@/types/cv";
 export const experiences: Experience[] = [
-	{
-		title: "Software Engineer",
-		company: "Crev",
-		time: "2021-2024",
-		location: 'Osaka, Japan',
-		description: '',
-	},
-
-	{
-		company: 'SANKEN',
-		time: '2024-Present',
-		title: 'Specially Appointed Researcher',
-		location: 'Osaka, Japan',
-		description: '',
-	},
-
+	new Experience(FacurityId.Crev, new Date(2021, 3), ERoleId.Crev, ELocationId.Osaka),
+	new Experience(FacurityId.SANKEN, new Date(2024, 3), ERoleId.ResearcherS, ELocationId.Osaka),
 ];
 
 export const education: Education[] = [
-	{
-		school: 'The University of Osaka',
-		time: '2020.04-2024.03',
-		degree: 'Bachelor',
-		location: 'Osaka, Japan',
-		description: 'Department of Electronic and Information Engineering, School of Engineering',
-	},
-	{
-		school: 'The University of Osaka',
-		time: '2024.04-2026.03',
-		degree: 'Master',
-		location: 'Osaka, Japan',
-		description: 'Graduate School of Information Science and Technology',
-	},
-	{
-		school: 'The University of Osaka',
-		time: '2026.04-Present',
-		degree: 'Ph.D',
-		location: 'Osaka, Japan',
-		description: 'Graduate School of Information Science and Technology',
-	},
+	new Experience(FacurityId.Handai, new Date(2020, 3), ERoleId.Bachelor, ELocationId.Osaka, new Date(2024, 2)),
+	new Experience(FacurityId.Handai, new Date(2024, 3), ERoleId.Master, ELocationId.Osaka, new Date(2026, 2)),
+	new Experience(FacurityId.Handai, new Date(2026, 3), ERoleId.Doctor, ELocationId.Osaka),
 ];
 
 export const skills: Skill[] = [

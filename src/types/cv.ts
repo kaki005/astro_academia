@@ -1,17 +1,38 @@
-export interface Experience {
-  company: string;
-  time: string;
-  title: string;
-  location?: string;
-  description?: string;
+export enum ELocationId {
+  Osaka = "Osaka"
+}
+export enum FacurityId {
+  SANKEN = "SANKEN",
+  Handai = "Handai",
+  Crev = "Crev",
 }
 
-export interface Education {
-  school: string;
-  time: string;
-  degree: string;
-  location?: string;
-  description?: string;
+export enum ERoleId {
+  Bachelor = "Bachelor",
+  Master = "Master",
+  Doctor = "Doctor",
+  Crev = "Crev",
+  ResearcherS = "ResearcherS"
+}
+
+export class Experience {
+  constructor(
+    public facurity: FacurityId, // 所属機関
+    public start: Date,
+    public role: ERoleId,
+    public location: ELocationId,
+    public end?: Date,
+  ) { }
+}
+
+export class Education {
+  constructor(
+    public facurity: FacurityId, // 所属機関
+    public start: Date,
+    public role: ERoleId,
+    public location: ELocationId,
+    public end?: Date,
+  ) { }
 }
 
 export interface Skill {
