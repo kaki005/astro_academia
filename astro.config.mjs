@@ -13,4 +13,8 @@ export default defineConfig({
     integrations: [react(), tailwind(), sitemap()],
     site: template.website_url,
     base: template.base,
+    i18n: {
+        defaultLocale: 'ja',
+        locales: ['ja', 'en'],
+    },
 });

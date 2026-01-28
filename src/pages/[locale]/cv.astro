@@ -1,12 +1,15 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { experiences, education, skills, publications } from "../data/cv";
-import CvTimeline from "@/components/ui/CvTimeline.astro";
-
-import type { Experience, Education, Publication } from "../types/cv";
-import List from "@/components/ui/List.astro";
-import PublicationsList from "@/components/ui/PublicationsList.astro";
-
+import Layout from "../../layouts/Layout.astro";
+import { experiences, education, skills, publications } from "../../data/cv";
+import CvTimeline from "../../components/ui/CvTimeline.astro";
+import { _getStaticPaths } from "../../i18n";
+import { locales, getMessages, getTranslations } from "../../i18n";
+import type { Experience, Education, Publication } from "../../types/cv";
+import List from "../../components/ui/List.astro";
+import PublicationsList from "../../components/ui/PublicationsList.astro";
+export const getStaticPaths = _getStaticPaths; // 必須
+const { locale } = Astro.params;
+const messages = getMessages(locale);
 let orderedExperiences: Experience[] = [];
 let orderedEducations: Education[] = [];
 let orderedPublications: Publication[] = [];
@@ -45,38 +48,7 @@ if (publications.length > 0) {
 }
 ---
 
-<Layout>
-	{
-		orderedEducations.length > 0 && (
-			<section class="mb-12">
-				<h2 class="text-2xl font-bold mb-6 border-b pb-2">Education</h2>
-				<CvTimeline elements={orderedEducations} colored={true} />
-			</section>
-		)
-	}
-
-	{
-		orderedExperiences.length > 0 && (
-			<section class="mb-12">
-				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
-					Experiences
-				</h2>
-				<CvTimeline elements={orderedExperiences} colored={true} />
-			</section>
-		)
-	}
-
-	{
-		orderedPublications.length > 0 && (
-			<section class="mb-12">
-				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
-					Last publications
-				</h2>
-				<PublicationsList elements={orderedPublications} />
-			</section>
-		)
-	}
-
+<Layout locale={locale}>
 	<!-- {
 		skills.length > 0 && (
 			<section class='mb-12'>

@@ -1,14 +1,16 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { publications } from "@/data/cv";
-import { highlightAuthor } from "@/lib/utils";
-import { template } from "@/settings";
-import type { Publication } from "@/types/cv";
-
+import Layout from "../../layouts/Layout.astro";
+import { publications } from "../../data/cv";
+import { highlightAuthor } from "../../lib/utils";
+import { template } from "../../settings";
+import type { Publication } from "../../types/cv";
+import { _getStaticPaths } from "../../i18n";
+export const getStaticPaths = _getStaticPaths; // 必須
+const { locale } = Astro.params;
 const ALL_PAPERS: Publication[] = publications; // This will be replaced with dynamic data later
 ---
 
-<Layout title="Papers">
+<Layout title="Papers" locale={locale}>
   <div class="prose max-w-none">
     <h1 class="text-3xl font-bold mb-8">Publications</h1>
 

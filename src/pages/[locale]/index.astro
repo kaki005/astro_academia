@@ -1,0 +1,76 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SocialIcons from "../../components/ui/SocialIcons.astro";
+import { Image } from "astro:assets";
+import { profile } from "../../settings";
+import ProfilePictures from "@/assets/profile_pictures.jpg";
+import CvTimeline from "../../components/ui/CvTimeline.astro";
+import PublicationsList from "../../components/ui/PublicationsList.astro";
+// import Hero from "@/components/ui/Hero.astro";
+import Grid from "../../components/ui/Grid.astro";
+import ArticleList from "../../components/ui/ArticleList.astro";
+import { locales, getMessages, getTranslations } from "../../i18n";
+import { _getStaticPaths } from "../../i18n";
+const { fullName, title, institute } = profile;
+const { locale } = Astro.params;
+const messages = getMessages(locale);
+import { experiences, education, skills, publications } from "../../data/cv";
+export const getStaticPaths = _getStaticPaths; // 必須
+---
+
+<Layout locale={locale}>
+	<!-- Hero Section -->
+	<section class="flex items-center gap-12 border-b pb-12">
+		<div class="flex-1">
+			<!-- <Hero
+				fullName={fullName}
+				title={title}
+				institute={institute}
+				profilePicture={ProfilePictures}
+			/> -->
+			<div class="flex gap-4">
+				<SocialIcons />
+			</div>
+		</div>
+		<div class="size-72 lg:block hidden">
+			<!-- Add your profile image -->
+			<Image
+				src={ProfilePictures}
+				alt={fullName}
+				class="w-full h-full mask mask-circle size-44"
+			/>
+		</div>
+	</section>
+	{
+		education.length > 0 && (
+			<section class="mb-12">
+				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
+					{messages.common.education}
+				</h2>
+				<CvTimeline elements={education} colored={true} />
+			</section>
+		)
+	}
+
+	{
+		experiences.length > 0 && (
+			<section class="mb-12">
+				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
+					{messages.common.experiences}
+				</h2>
+				<CvTimeline elements={experiences} colored={true} />
+			</section>
+		)
+	}
+
+	{
+		publications.length > 0 && (
+			<section class="mb-12">
+				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
+					{messages.common.publications}
+				</h2>
+				<PublicationsList elements={publications} />
+			</section>
+		)
+	}
+</Layout>

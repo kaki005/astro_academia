@@ -1,0 +1,31 @@
+---
+import { locales, getMessages, getTranslations } from "../../i18n";
+type Props = {
+    locale?: string;
+};
+const { locale } = Astro.props;
+---
+
+<style>
+    a[aria-current="page"] {
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: underline;
+    }
+</style>
+
+<nav>
+    <a
+        href={`${import.meta.env.BASE_URL}/ja`}
+        aria-current={locale === "ja" ? "page" : undefined}
+    >
+        🇯🇵日本語
+    </a>
+    |
+    <a
+        href={`${import.meta.env.BASE_URL}/en`}
+        aria-current={locale === "en" ? "page" : undefined}
+    >
+        🇺🇸English
+    </a>
+</nav>

@@ -3,10 +3,9 @@ import { ClientRouter } from "astro:transitions";
 
 import BetterIcon from "../components/ui/BetterIcon.astro";
 import DarkLightController from "../components/ui/DarkLightController.astro";
-import ThemeSelector from "../components/ui/ThemeSelector.astro";
 import Navbar from "../components/ui/Navbar.astro";
+import SwitichLang from "@/components/ui/SwitichLang.astro";
 import Head from "../components/Head.astro";
-
 import { seo, profile, template } from "../settings";
 import Footer from "../components/ui/Footer.astro";
 
@@ -14,21 +13,20 @@ type Props = {
 	title?: string;
 	description?: string;
 	image?: string;
+	locale?: string;
 };
 
 const {
 	title = seo.default_title,
 	description = seo.default_description,
 	image = seo.default_image,
+	locale = "en",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 	<head>
-		<script
-			src="https://kit.fontawesome.com/e70eb493d2.js"
-			crossorigin="anonymous"></script>
 		{template.transitions && <ClientRouter />}
 
 		<Head title={title} description={description} image={image} />
@@ -44,8 +42,12 @@ const {
 					<nav class="navbar">
 						<div class="navbar-start">
 							{
-								template.menu_left && <DarkLightController />
-								/* <ThemeSelector transition:persist /> */
+								template.menu_left && (
+									<div class="container-end">
+										<SwitichLang locale={locale} />
+										<DarkLightController />
+									</div>
+								)
 							}
 							<label
 								for="my-drawer"
@@ -74,8 +76,12 @@ const {
 						</div>
 						<div class="navbar-end">
 							{
-								!template.menu_left && <DarkLightController />
-								/* <ThemeSelector transition:persist /> */
+								!template.menu_left && (
+									<div class="container-end">
+										<SwitichLang locale={locale} />
+										<DarkLightController />
+									</div>
+								)
 							}
 						</div>
 					</nav>
@@ -94,7 +100,7 @@ const {
 					for="my-drawer"
 					aria-label="close sidebar"
 					class="drawer-overlay"></label>
-				<Navbar />
+				<Navbar locale={locale} />
 			</div>
 		</div>
 	</body>
@@ -111,5 +117,11 @@ const {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	.container-end {
+		display: flex;
+		align-items: center;
+		gap: 1rem; /* ← 横の隙間 */
 	}
 </style>
