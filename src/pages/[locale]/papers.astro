@@ -5,14 +5,16 @@ import { highlightAuthor } from "../../lib/utils";
 import { template } from "../../settings";
 import type { Publication } from "../../types/cv";
 import { _getStaticPaths } from "../../i18n";
+import { locales, getMessages, getTranslations } from "../../i18n";
 export const getStaticPaths = _getStaticPaths; // 必須
 const { locale } = Astro.params;
+const messages = getMessages(locale);
 const ALL_PAPERS: Publication[] = publications; // This will be replaced with dynamic data later
 ---
 
 <Layout title="Papers" locale={locale}>
   <div class="prose max-w-none">
-    <h1 class="text-3xl font-bold mb-8">Publications</h1>
+    <h1 class="text-3xl font-bold mb-8">{messages.common.publications}</h1>
 
     <div class="space-y-8">
       {

@@ -10,10 +10,11 @@ import PublicationsList from "../../components/ui/PublicationsList.astro";
 import Grid from "../../components/ui/Grid.astro";
 import ArticleList from "../../components/ui/ArticleList.astro";
 import { locales, getMessages, getTranslations } from "../../i18n";
-import { _getStaticPaths } from "../../i18n";
+import { _getStaticPaths, GetIntroduction } from "../../i18n";
 const { fullName, title, institute } = profile;
 const { locale } = Astro.params;
 const messages = getMessages(locale);
+const Introduction = GetIntroduction(locale);
 import { experiences, education, skills, publications } from "../../data/cv";
 export const getStaticPaths = _getStaticPaths; // 必須
 ---
@@ -22,12 +23,7 @@ export const getStaticPaths = _getStaticPaths; // 必須
 	<!-- Hero Section -->
 	<section class="flex items-center gap-12 border-b pb-12">
 		<div class="flex-1">
-			<!-- <Hero
-				fullName={fullName}
-				title={title}
-				institute={institute}
-				profilePicture={ProfilePictures}
-			/> -->
+			<Introduction />
 			<div class="flex gap-4">
 				<SocialIcons />
 			</div>
