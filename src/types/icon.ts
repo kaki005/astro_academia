@@ -3,5 +3,5 @@ export class LinkedIcon {
         public name: string,
         public href: string,
         public icon_id: string,
-        public color: string = "black",) { }
+        public color: string,) { }
 }
