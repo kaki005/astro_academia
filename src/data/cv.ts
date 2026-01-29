@@ -31,7 +31,7 @@ export const publications: Publication[] = [
 		"(ii) They discretize timestamps, failing to track the temporal dynamics of streams(e.g., trends, abnormal events), which makes them ineffective for detecting anomalies at the group level, referred to as 'group anomalies' (e.g, DoS attacks). " +
 		"To address these challenges, we propose HeteroComp, a method for continuously summarizing heterogeneous tensor streams into 'components' representing latent groups in each attribute and their temporal dynamics, and detecting group anomalies. " +
 		"Our method employs Gaussian process priors to model unknown distributions of continuous attributes, and temporal dynamics, which directly estimate probability densities from data.Extracted components give concise but effective summarization, enabling accurate group anomaly detection. " +
-		"Extensive experiments on real datasets demonstrate that HeteroComp outperforms the state - of - the - art algorithms for group anomaly detection accuracy, and its computational time does not depend on the data stream length.",
+		"Extensive experiments on real datasets demonstrate that HeteroComp outperforms the state-of-the-art algorithms for group anomaly detection accuracy, and its computational time does not depend on the data stream length.",
 		"The ACM Web Conference 2026 (WWW '26)",
 		3370, // 投稿数
 		676,	// 採択数

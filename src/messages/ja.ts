@@ -11,7 +11,8 @@ export default {
         accept_rate: "採択率",
         links: "リンク",
         abstract: "序文",
-        thumnail: "概要図"
+        thumnail: "概要図",
+        detail: "詳細",
     },
     Location: {
         "Osaka": "日本，大阪府",

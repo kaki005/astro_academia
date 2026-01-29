@@ -13,7 +13,8 @@ export default {
         accept_rate: "accpeptance rate",
         links: "Links",
         abstract: "Abstract",
-        thumnail: "Illustration"
+        thumnail: "Illustration",
+        detail: "detail",
     },
     Location: {
         "Osaka": "Osaka, Japan",
