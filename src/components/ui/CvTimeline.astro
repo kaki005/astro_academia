@@ -3,6 +3,7 @@ import { isExperience } from "@/types/cv";
 import type { Experience, Education } from "@/types/cv";
 import { Icon } from "@/components/ui/icon";
 import type { AstroComponentFactory } from "astro";
+import TimeDisplay from "@/components/ui/TimeDisplay.astro";
 interface Props {
 	elements: (Experience | Education)[];
 	locale?: string;
@@ -17,42 +18,61 @@ function formatDate(date: Date, lang: string) {
 		// day: "numeric",
 	});
 }
-const TIME_CLASS = "bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded"
+const ORIGINAL_LIST = elements;
+const REVERSED_LIST = [...ORIGINAL_LIST].reverse();
+const TIME_CLASS =
+	"bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded";
 ---
 
-<ol class="items-center sm:flex">
-	{
-		elements.map((element, index) => (
-			<li class="relative mb-6 sm:mb-0 sm:flex-1">
-				<div class="flex items-center">
-					<div class="z-10 flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full ring-0 ring-buffer sm:ring-4 shrink-0">
-						<Icon name="calendar" />
+<!-- sm以上 -->
+<div class="hidden sm:block">
+	<ol class="items-center flex">
+		{
+			ORIGINAL_LIST.map((element, index) => (
+				<li class="relative mb-0 flex-1">
+					<div class="flex items-center">
+						<div class="z-10 flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full ring-buffer ring-4 shrink-0">
+							<Icon name="calendar" />
+						</div>
+						<div class="flex flex-1 bg-blue-200 h-px" />
 					</div>
-					<div class="hidden sm:flex flex-1 bg-blue-500 h-px" />
-				</div>
-				<div class="mt-3 sm:pe-8">
-					<div>
-						<time
-							class={TIME_CLASS}
-							datetime={element.start.toISOString()}
-						>
-							{formatDate(element.start)}
-						</time>
-						<span class="text-2xl font-light relative top-1 m-1">–</span>
-						{element.end != null ? (
-							<time
-								class={TIME_CLASS}
-								datetime={element.start.toISOString()}
-							>
-								{formatDate(element.end)}
-							</time>
-						): <time class={TIME_CLASS}>On</time>
-						}
+					<div class="mt-3 pe-8">
+						<TimeDisplay
+							start={element.start}
+							locale={locale}
+							end={element.end}
+							tilde_style="top-1"
+						/>
+						{ChildItem != null && (
+							<ChildItem item={element} locale={locale} />
+						)}
+					</div>
+				</li>
+			))
+		}
+	</ol>
+</div>
+
+<!-- sm未満 -->
+<div class="block sm:hidden">
+	<ol class="relative border-s border-blue-200">
+		{
+			REVERSED_LIST.map((element, index) => (
+				<li class="mb-4 ms-6">
+					<span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 translate-y-2 ring-4 ring-buffer bg-white">
+						<Icon name="calendar" />
+					</span>
+					<TimeDisplay
+						start={element.start}
+						locale={locale}
+						end={element.end}
+						tilde_style="top-0.5"
+					/>
 					{ChildItem != null && (
 						<ChildItem item={element} locale={locale} />
 					)}
-				</div>
-			</li>
-		))
-	}
-</ol>
+				</li>
+			))
+		}
+	</ol>
+</div>

@@ -1,9 +1,10 @@
 ---
 import { SOCIALS } from "@/data/socials";
 import { Icon } from "@/components/ui/icon";
+const { class: className = "" } = Astro.props;
 ---
 
-<div class="flex flex-wrap justify-between items-center">
+<div class=`flex flex-wrap justify-between items-center ${className}`>
 	{
 		SOCIALS.map((item) => (
 			<a href={item.href}>

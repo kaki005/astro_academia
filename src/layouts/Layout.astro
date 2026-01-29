@@ -11,6 +11,8 @@ import SwitichLang from "@/components/ui/SwitichLang.astro";
 import Head from "../components/Head.astro";
 import { seo, profile, template } from "../settings";
 import Footer from "../components/ui/Footer.astro";
+import { getName } from "@/data/person";
+import { EPersonId } from "@/types/person";
 
 type Props = {
 	title?: string;
@@ -25,6 +27,7 @@ const {
 	image = seo.default_image,
 	locale = "en",
 } = Astro.props;
+const MY_NAME = getName(EPersonId.Me, locale);
 ---
 
 <!doctype html>
@@ -35,16 +38,15 @@ const {
 		<Head title={title} description={description} image={image} />
 	</head>
 	<body>
-		<Header>
+		<Header class="bg-white">
 			<HeaderContent>
-				<Logo href="/">
+				<Logo class="hidden sm:flex">
 					<LogoImage
 						src={ProfilePictures}
 						alt="soshi kakio"
-						class="size-20"
+						class="size-16"
 					/>
-					<LogoText>Soshi Kakio</LogoText>
-					<SocialIcons />
+					<LogoText class="text-5xl text-black">{MY_NAME}</LogoText>
 				</Logo>
 				<HeaderActions class="ml-auto">
 					<SwitichLang locale={locale} />

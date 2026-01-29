@@ -16,6 +16,14 @@ const messages = getMessages(locale);
     <li>
         {messages.Degree[item.degree].description}
     </li>
-    <li>{messages.Facurity[item.facurity]}</li>
-    <li>{messages.Location[item.location]}</li>
+    <li>
+        <i class="fa-solid fa-building-columns"></i>{
+            messages.Facurity[item.facurity]
+        }
+    </li>
+    <li>
+        <i class="fa-solid fa-location-dot"></i>{
+            messages.Location[item.location]
+        }
+    </li>
 </ol>

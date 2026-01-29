@@ -1,5 +1,6 @@
 ---
 import { template } from "@/settings";
+import "@/styles/globals.css";
 interface Props {
   title: string;
   description: string;
@@ -72,3 +73,4 @@ const { title, description, image } = Astro.props;
     themeChange(false); // false = don't persist to localStorage
   });
 </script>
+<script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>

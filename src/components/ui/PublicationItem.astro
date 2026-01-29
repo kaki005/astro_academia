@@ -14,14 +14,14 @@ interface Props {
   item: Publication;
   locale: string;
 }
-const KEY_CLASS = "font-medium text-neutral-600";
+const KEY_CLASS = "font-medium";
 const { item, locale } = Astro.props;
 const messages = getMessages(locale);
 ---
 
 <ListItem>
   <div>
-    <h2 class="text-lg font-bold mb-2 break-words">[{item.id}]{item.title}</h2>
+    <h2 class="text-lg font-bold mb-2">[{item.id}] {item.title}</h2>
     <dl class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
       <dt class={KEY_CLASS}>{messages.common.authors}</dt>
       <dd>{item.authors.map((author, i)=> <LinkedAuthorText isEnglish={item.isEnglish} person={author} isAppendComma={i < item.authors.length-1}/>)}</dd>
@@ -41,29 +41,24 @@ const messages = getMessages(locale);
         <dd>
           <div>
           {item.links.map(link =>
-            <a href={link.href} class="font-medium text-fg-brand underline hover:no-underline">
-              {link.name}
+            <a href={link.href} class="font-medium text-fg-brand underline hover:no-underline flex">
+              <Icon name={link.icon_id} class="mr-1"/> {link.name}
             </a>
           )}
           </div>
         </dd>
       )}
       {item.thumnail != null && (
-        <dt>{messages.common.thumnail}</dt>
-        <dd><Image src={item.thumnail} alt="thumnail" class="w-full max-w-md h-auto"/></dd>
+        <dt class={KEY_CLASS}>{messages.common.thumnail}</dt>
+        <dd><Image src={item.thumnail} alt="thumnail" class="relative w-full"/></dd>
       )}
-
-
-      <dt class={KEY_CLASS}>{messages.common.abstract}</dt>
-      <dd>
-        <Collapsible class="w-full max-w-xl gap-2">
-          <CollapsibleTrigger>{messages.common.detail}</CollapsibleTrigger>
-          <CollapsibleContent>
-            <p class="break-words">{item.abstract}</p>
-          </CollapsibleContent>
-        </Collapsible>
-      </dd>
     </dl>
 
+    <Collapsible class="relative w-full">
+      <CollapsibleTrigger><text class=`${KEY_CLASS} relative w-full`>{messages.common.abstract}</text></CollapsibleTrigger>
+      <CollapsibleContent>
+        <p>{item.abstract}</p>
+      </CollapsibleContent>
+    </Collapsible>
   </div>
 </ListItem>

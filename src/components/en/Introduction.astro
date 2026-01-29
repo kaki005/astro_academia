@@ -2,6 +2,7 @@
 import { PERSON_DIC } from "@/data/person";
 import { EPersonId } from "@/types/person";
 import { EPublicationId } from "@/types/cv";
+import { Icon } from "../ui/icon";
 const MATSUBARA = PERSON_DIC[EPersonId.Matsubara];
 const SAKURAI = PERSON_DIC[EPersonId.Sakurai];
 ---
@@ -22,3 +23,10 @@ const SAKURAI = PERSON_DIC[EPersonId.Sakurai];
     I received my B.Sc. degrees from The University of Osaka advised by Prof.
     Yasushi Sakurai in March 2024.
 </p>
+<div class="flex">
+    <Icon name="download" class="mr-1" />
+    <p>
+        Download my CV
+        <a href="https://kaki005.github.io/CV/cv_en.pdf" class="ml-1"> here</a>.
+    </p>
+</div>

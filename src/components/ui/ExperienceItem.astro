@@ -16,5 +16,9 @@ const messages = getMessages(locale);
     <li>
         {messages.Role[item.role]}
     </li>
-    <li>{messages.Location[item.location]}</li>
+    <li>
+        <i class="fa-solid fa-location-dot"></i>{
+            messages.Location[item.location]
+        }
+    </li>
 </ol>

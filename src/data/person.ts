@@ -10,3 +10,6 @@ export const PERSON_DIC: Record<string, Person> = {}
 PERSONS.forEach(person => {
     PERSON_DIC[person.Id] = person
 })
+export function getName(id: EPersonId, locale: string) {
+    return locale == "ja" ? PERSON_DIC[id].JapanName : PERSON_DIC[id].EnglishName;
+}

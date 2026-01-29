@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import { profile } from "../../settings";
 import ProfilePictures from "@/assets/profile_pictures.jpg";
 import CvTimeline from "../../components/ui/CvTimeline.astro";
+import SocialIcons from "../../components/ui/SocialIcons.astro";
 import PublicationItem from "../../components/ui/PublicationItem.astro";
 import EducaionItem from "../../components/ui/EducationItem.astro";
 import ExperienceItem from "../../components/ui/ExperienceItem.astro";
@@ -22,15 +23,24 @@ export const getStaticPaths = _getStaticPaths; // 必須
 <Layout locale={locale}>
 	<!-- Hero Section -->
 	<section class="mb-12">
+		<h1 class="text-4xl font-bold mb-6 border-b pb-2">
+			<i class="fa-solid fa-user"></i>{messages.common.introduction}
+		</h1>
 		<Introduction />
+		<h2 class="text-2xl mt-2">
+			{messages.common.links}
+		</h2>
+		<SocialIcons class="w-52" />
 	</section>
 
 	{
 		education.length > 0 && (
 			<section class="mb-12">
 				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
+					<i class="fa-solid fa-graduation-cap" />
 					{messages.common.education}
 				</h1>
+
 				<CvTimeline
 					elements={education}
 					locale={locale}
@@ -44,6 +54,7 @@ export const getStaticPaths = _getStaticPaths; // 必須
 		experiences.length > 0 && (
 			<section class="mb-12">
 				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
+					<i class="fa-solid fa-briefcase" />
 					{messages.common.experiences}
 				</h1>
 				<CvTimeline
@@ -59,6 +70,7 @@ export const getStaticPaths = _getStaticPaths; // 必須
 		publications.length > 0 && (
 			<section class="mb-12">
 				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
+					<i class="fa-regular fa-file-lines" />
 					{messages.common.publications}
 				</h1>
 				<List>

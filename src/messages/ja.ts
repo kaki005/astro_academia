@@ -1,5 +1,6 @@
 export default {
     common: {
+        introduction: "自己紹介",
         education: "学歴",
         experiences: "職歴",
         publications: "研究業績",
@@ -13,6 +14,7 @@ export default {
         abstract: "序文",
         thumnail: "概要図",
         detail: "詳細",
+        now: "現在",
     },
     Location: {
         "Osaka": "日本，大阪府",

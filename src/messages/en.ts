@@ -2,6 +2,7 @@ import { FacurityId } from "@/types/cv";
 
 export default {
     common: {
+        introduction: "About me",
         education: "Education",
         experiences: "Experiences",
         publications: "Publications",
@@ -15,6 +16,7 @@ export default {
         abstract: "Abstract",
         thumnail: "Illustration",
         detail: "detail",
+        now: "On",
     },
     Location: {
         "Osaka": "Osaka, Japan",
