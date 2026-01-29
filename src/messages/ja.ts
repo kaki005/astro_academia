@@ -11,8 +11,12 @@ export default {
         "Osaka": "日本，大阪府",
     },
     Role: {
+        Engineer: "デジタル技術エンジニア",
+        ResearcherS: "特任研究員",
+    },
+    Degree: {
         Bachelor: {
-            name: "博士（情報科学）",
+            name: "学士（工学）",
             description: "工学部電子情報工学科",
         },
         Master: {
@@ -20,17 +24,9 @@ export default {
             description: "情報科学研究科情報システム工学専攻",
         },
         Doctor: {
-            name: "学士（工学）",
+            name: "博士（情報科学）",
             description: "情報科学研究科情報システム工学専攻",
         },
-        Crev: {
-            name: "Crev",
-            description: "デジタル技術エンジニア",
-        },
-        ResearcherS: {
-            name: "産業科学研究所(SANKEN)",
-            description: "特任研究員",
-        }
     },
     Facurity: {
         SANKEN: "産業科学研究所(SANKEN)",

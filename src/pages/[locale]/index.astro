@@ -1,4 +1,5 @@
 ---
+import "flowbite";
 import Layout from "../../layouts/Layout.astro";
 import SocialIcons from "../../components/ui/SocialIcons.astro";
 import { Image } from "astro:assets";
@@ -6,9 +7,8 @@ import { profile } from "../../settings";
 import ProfilePictures from "@/assets/profile_pictures.jpg";
 import CvTimeline from "../../components/ui/CvTimeline.astro";
 import PublicationsList from "../../components/ui/PublicationsList.astro";
-// import Hero from "@/components/ui/Hero.astro";
-import Grid from "../../components/ui/Grid.astro";
-import ArticleList from "../../components/ui/ArticleList.astro";
+import EducaionItem from "../../components/ui/EducationItem.astro";
+import ExperienceItem from "../../components/ui/ExperienceItem.astro";
 import { locales, getMessages, getTranslations } from "../../i18n";
 import { _getStaticPaths, GetIntroduction } from "../../i18n";
 const { fullName, title, institute } = profile;
@@ -21,7 +21,7 @@ export const getStaticPaths = _getStaticPaths; // 必須
 
 <Layout locale={locale}>
 	<!-- Hero Section -->
-	<section class="flex items-center gap-12 border-b pb-12">
+	<section class="flex items-center gap-12 pb-12">
 		<div class="flex-1">
 			<Introduction />
 			<div class="flex gap-4">
@@ -29,7 +29,6 @@ export const getStaticPaths = _getStaticPaths; // 必須
 			</div>
 		</div>
 		<div class="size-72 lg:block hidden">
-			<!-- Add your profile image -->
 			<Image
 				src={ProfilePictures}
 				alt={fullName}
@@ -37,16 +36,17 @@ export const getStaticPaths = _getStaticPaths; // 必須
 			/>
 		</div>
 	</section>
+
 	{
 		education.length > 0 && (
 			<section class="mb-12">
-				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
+				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
 					{messages.common.education}
-				</h2>
+				</h1>
 				<CvTimeline
 					elements={education}
-					colored={true}
 					locale={locale}
+					ChildItem={EducaionItem}
 				/>
 			</section>
 		)
@@ -55,10 +55,14 @@ export const getStaticPaths = _getStaticPaths; // 必須
 	{
 		experiences.length > 0 && (
 			<section class="mb-12">
-				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
+				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
 					{messages.common.experiences}
-				</h2>
-				<CvTimeline elements={experiences} colored={true} />
+				</h1>
+				<CvTimeline
+					elements={experiences}
+					locale={locale}
+					ChildItem={ExperienceItem}
+				/>
 			</section>
 		)
 	}
@@ -66,9 +70,9 @@ export const getStaticPaths = _getStaticPaths; // 必須
 	{
 		publications.length > 0 && (
 			<section class="mb-12">
-				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
+				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
 					{messages.common.publications}
-				</h2>
+				</h1>
 				<PublicationsList elements={publications} />
 			</section>
 		)

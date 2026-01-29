@@ -1,14 +1,14 @@
-import { Experience, Education, ELocationId, FacurityId, ERoleId } from "@/types/cv";
+import { Experience, Education, ELocationId, FacurityId, ERoleId, EDegree } from "@/types/cv";
 import type { Skill, Publication } from "@/types/cv";
 export const experiences: Experience[] = [
-	new Experience(FacurityId.Crev, new Date(2021, 3), ERoleId.Crev, ELocationId.Osaka),
+	new Experience(FacurityId.Crev, new Date(2021, 3), ERoleId.Engineer, ELocationId.Osaka),
 	new Experience(FacurityId.SANKEN, new Date(2024, 3), ERoleId.ResearcherS, ELocationId.Osaka),
 ];
 
 export const education: Education[] = [
-	new Experience(FacurityId.Handai, new Date(2020, 3), ERoleId.Bachelor, ELocationId.Osaka, new Date(2024, 2)),
-	new Experience(FacurityId.Handai, new Date(2024, 3), ERoleId.Master, ELocationId.Osaka, new Date(2026, 2)),
-	new Experience(FacurityId.Handai, new Date(2026, 3), ERoleId.Doctor, ELocationId.Osaka),
+	new Education(EDegree.Bachelor, FacurityId.Handai, new Date(2020, 3), ELocationId.Osaka, new Date(2024, 2)),
+	new Education(EDegree.Master, FacurityId.Handai, new Date(2024, 3), ELocationId.Osaka, new Date(2026, 2)),
+	new Education(EDegree.Doctor, FacurityId.Handai, new Date(2026, 3), ELocationId.Osaka),
 ];
 
 export const skills: Skill[] = [

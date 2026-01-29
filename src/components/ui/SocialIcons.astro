@@ -1,12 +1,18 @@
 ---
 import { SOCIALS } from "@/data/socials";
+import { Icon } from "@/components/ui/icon";
 ---
 
 <div class="flex flex-wrap justify-between items-center">
 	{
 		SOCIALS.map((item) => (
 			<a href={item.href}>
-				<i class={`${item.icon_id} fa-2x`} />
+				{/* <i class={`${item.icon_id} fa-2x`} /> */}
+				<Icon
+					name={item.icon_id}
+					class="w-8 h-8 m-1"
+					color={item.color}
+				/>
 			</a>
 		))
 	}

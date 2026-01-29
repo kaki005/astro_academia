@@ -1,0 +1,21 @@
+---
+import type { Education } from "@/types/cv";
+interface Props {
+    item: Education;
+    locale?: string;
+}
+import { locales, getMessages, getTranslations } from "../../i18n";
+const { item, locale } = Astro.props;
+const messages = getMessages(locale);
+---
+
+<h3 class="text-lg font-semibold text-heading my-2">
+    {messages.Degree[item.degree].name}
+</h3>
+<ol class="text-body mb-4">
+    <li>
+        {messages.Degree[item.degree].description}
+    </li>
+    <li>{messages.Facurity[item.facurity]}</li>
+    <li>{messages.Location[item.location]}</li>
+</ol>

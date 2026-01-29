@@ -13,6 +13,10 @@ export default {
         "Osaka": "Osaka, Japan",
     },
     Role: {
+        Engineer: "Digital Technology Engineer",
+        ResearcherS: "Specially Appointed Researcher",
+    },
+    Degree: {
         Bachelor: {
             name: "Bachelor",
             description: "Department of Electronic and Information Engineering, School of Engineering",
@@ -25,17 +29,9 @@ export default {
             name: "Ph.D",
             description: "Department of Information Systems Engineering, Graduate School of Information Science and Technology",
         },
-        Crev: {
-            name: "Crev",
-            description: "Digital Technology Engineer",
-        },
-        ResearcherS: {
-            name: "SANKEN, The University of Osaka",
-            description: "Specially Appointed Researcher",
-        }
     },
     Facurity: {
-        SANKEN: "SANKEN",
+        SANKEN: "SANKEN, The University of Osaka",
         Handai: "The University of Osaka",
         Crev: "Crev",
     }

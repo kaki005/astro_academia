@@ -8,18 +8,21 @@ export enum FacurityId {
 }
 
 export enum ERoleId {
+  Engineer = "Engineer",
+  ResearcherS = "ResearcherS"
+}
+export enum EDegree {
   Bachelor = "Bachelor",
   Master = "Master",
   Doctor = "Doctor",
-  Crev = "Crev",
-  ResearcherS = "ResearcherS"
 }
+
 
 export class Experience {
   constructor(
     public facurity: FacurityId, // 所属機関
     public start: Date,
-    public role: ERoleId,
+    public role: ERoleId, // 所属名
     public location: ELocationId,
     public end?: Date,
   ) { }
@@ -27,9 +30,9 @@ export class Experience {
 
 export class Education {
   constructor(
+    public degree: EDegree,
     public facurity: FacurityId, // 所属機関
     public start: Date,
-    public role: ERoleId,
     public location: ELocationId,
     public end?: Date,
   ) { }
