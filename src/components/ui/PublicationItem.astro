@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import type { Skill, Publication } from "@/types/cv";
+import { Icon } from "@/components/ui/icon";
+import LinkedAuthorText from "@/components/ui/LinkedAuthorText.astro";
+import { ListItem } from "@/components/ui/list";
+import { locales, getMessages, getTranslations } from "../../i18n";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+interface Props {
+  item: Publication;
+  locale: string;
+}
+const KEY_CLASS = "font-medium text-neutral-600";
+const { item, locale } = Astro.props;
+const messages = getMessages(locale);
+---
+
+<ListItem>
+  <div>
+    <h2 class="text-lg font-bold mb-2">[{item.id}]{item.title}</h2>
+    <dl class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
+      <dt class={KEY_CLASS}>{messages.common.authors}</dt>
+      <dd>{item.authors.map((author, i)=> <LinkedAuthorText isEnglish={item.isEnglish} person={author} isAppendComma={i < item.authors.length-1}/>)}</dd>
+
+      {item.conference != null &&(
+        <dt class={KEY_CLASS}>{messages.common.conference}</dt>
+        <dd>{item.conference}</dd>)
+      }
+
+      {item.accepted_num != null && (
+        <dt class={KEY_CLASS}>{messages.common.accept_rate}</dt>
+        <dd>{Math.round(1000*item.accepted_num / item.submit_num)/10}% ({item.accepted_num}/{item.submit_num})</dd>
+      )}
+
+      {item.links.length > 0 && (
+        <dt class={KEY_CLASS}>{messages.common.links}</dt>
+        <dd>
+          <div>
+          {item.links.map(link =>
+            <a href={link.href} class="font-medium text-fg-brand underline hover:no-underline">
+              {link.name}
+            </a>
+          )}
+          </div>
+        </dd>
+      )}
+      {item.thumnail != null && (
+        <dt>{messages.common.thumnail}</dt>
+        <dd><Image src={item.thumnail} alt="thumnail"/></dd>
+      )}
+
+
+      <dt class={KEY_CLASS}>{messages.common.abstract}</dt>
+      <dd>
+        <Collapsible class="w-full max-w-xl gap-2">
+          <CollapsibleTrigger></CollapsibleTrigger>
+          <CollapsibleContent>
+            <p>{item.abstract}</p>
+          </CollapsibleContent>
+        </Collapsible>
+      </dd>
+    </dl>
+
+  </div>
+</ListItem>

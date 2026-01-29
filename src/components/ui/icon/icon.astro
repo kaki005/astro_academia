@@ -1,12 +1,12 @@
 ---
-import type { HTMLAttributes } from "astro/types"
+import type { HTMLAttributes } from "astro/types";
 
 interface Props extends Omit<HTMLAttributes<"svg">, "name" | "href"> {
-  href?: HTMLAttributes<"a">["href"]
-  name?: string | number
+  href?: HTMLAttributes<"a">["href"];
+  name?: string | number;
 }
 
-const { name, href, ...rest } = Astro.props
+const { name, href, ...rest } = Astro.props;
 
 const hrefMap = {
   "x.com": "x",
@@ -35,38 +35,38 @@ const hrefMap = {
   "mailto:": "mail",
   "maps.app.goo.gl": "map-pin",
   linkedin: "linkedin",
-} as const
+} as const;
 
 const icons = import.meta.glob([
+  "node_modules/simple-icons/icons/*.svg", // CHG S.Kakio 入れ替えた
   "node_modules/lucide-static/icons/*.svg",
-  "node_modules/simple-icons/icons/*.svg",
-])
+]);
 
 // Get the right path from the icons glob
 const foundPath = () => {
-  let foundPath: string | undefined = undefined
+  let foundPath: string | undefined = undefined;
   // For x.com, we use the simple-icons X instead of the lucide-static X, since they overlap
   if (name === "x.com") {
-    foundPath = "/node_modules/simple-icons/icons/x.svg"
+    foundPath = "/node_modules/simple-icons/icons/x.svg";
   } else if (name) {
-    foundPath = Object.keys(icons).find((key) => key.includes(`/${name}.svg`))
+    foundPath = Object.keys(icons).find((key) => key.includes(`/${name}.svg`));
   } else if (href) {
     const hrefKey =
-      Object.keys(hrefMap).find((key) => href.toString().includes(key)) || name
-    const hrefValue = hrefMap[hrefKey as keyof typeof hrefMap]
+      Object.keys(hrefMap).find((key) => href.toString().includes(key)) || name;
+    const hrefValue = hrefMap[hrefKey as keyof typeof hrefMap];
     const foundPath = Object.keys(icons)
       // If href, reverse so that simple-icons takes precedence
       .reverse()
-      .find((key) => key.includes(`/${hrefValue}.svg`))
-    return foundPath
+      .find((key) => key.includes(`/${hrefValue}.svg`));
+    return foundPath;
   }
   // Else return the found path with lucide-icons taking precedence
-  return foundPath
-}
+  return foundPath;
+};
 
-const foundModule = foundPath() && icons[foundPath() as keyof typeof icons]
-const module = foundModule && ((await foundModule()) as any)
-const Comp = module?.default
+const foundModule = foundPath() && icons[foundPath() as keyof typeof icons];
+const module = foundModule && ((await foundModule()) as any);
+const Comp = module?.default;
 ---
 
 {

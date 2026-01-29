@@ -1,16 +1,16 @@
 ---
 import "flowbite";
 import Layout from "../../layouts/Layout.astro";
-import SocialIcons from "../../components/ui/SocialIcons.astro";
 import { Image } from "astro:assets";
 import { profile } from "../../settings";
 import ProfilePictures from "@/assets/profile_pictures.jpg";
 import CvTimeline from "../../components/ui/CvTimeline.astro";
-import PublicationsList from "../../components/ui/PublicationsList.astro";
+import PublicationItem from "../../components/ui/PublicationItem.astro";
 import EducaionItem from "../../components/ui/EducationItem.astro";
 import ExperienceItem from "../../components/ui/ExperienceItem.astro";
 import { locales, getMessages, getTranslations } from "../../i18n";
 import { _getStaticPaths, GetIntroduction } from "../../i18n";
+import { List, ListItem } from "@/components/ui/list";
 const { fullName, title, institute } = profile;
 const { locale } = Astro.params;
 const messages = getMessages(locale);
@@ -24,16 +24,6 @@ export const getStaticPaths = _getStaticPaths; // 必須
 	<section class="flex items-center gap-12 pb-12">
 		<div class="flex-1">
 			<Introduction />
-			<div class="flex gap-4">
-				<SocialIcons />
-			</div>
-		</div>
-		<div class="size-72 lg:block hidden">
-			<Image
-				src={ProfilePictures}
-				alt={fullName}
-				class="w-full h-full mask mask-circle size-44"
-			/>
 		</div>
 	</section>
 
@@ -73,7 +63,11 @@ export const getStaticPaths = _getStaticPaths; // 必須
 				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
 					{messages.common.publications}
 				</h1>
-				<PublicationsList elements={publications} />
+				<List>
+					{publications.map((item) => (
+						<PublicationItem item={item} locale={locale} />
+					))}
+				</List>
 			</section>
 		)
 	}

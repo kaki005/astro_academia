@@ -1,9 +1,11 @@
 ---
 import { ClientRouter } from "astro:transitions";
-
-import BetterIcon from "../components/ui/BetterIcon.astro";
+import ProfilePictures from "@/assets/profile_pictures.jpg";
 import DarkLightController from "../components/ui/DarkLightController.astro";
 import Navbar from "../components/ui/Navbar.astro";
+import { Header, HeaderActions, HeaderContent } from "@/components/ui/header";
+import { Logo, LogoImage, LogoText } from "@/components/ui/logo";
+import SocialIcons from "../components/ui/SocialIcons.astro";
 import SwitichLang from "@/components/ui/SwitichLang.astro";
 import Head from "../components/Head.astro";
 import { seo, profile, template } from "../settings";
@@ -37,7 +39,24 @@ const {
 		>
 			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 			<!-- Drawer content -->
-			<div class="drawer-content bg-base-100">
+			<Header>
+				<HeaderContent>
+					<Logo href="/">
+						<LogoImage
+							src={ProfilePictures}
+							alt="soshi kakio"
+							class="size-20"
+						/>
+						<LogoText>Soshi Kakio</LogoText>
+						<SocialIcons />
+					</Logo>
+					<HeaderActions class="ml-auto">
+						<SwitichLang locale={locale} />
+						<DarkLightController />
+					</HeaderActions>
+				</HeaderContent>
+			</Header>
+			<!-- <div class="drawer-content bg-base-100">
 				<div class="bg-base-100 z-50 text-base-content shadow-sm">
 					<nav class="navbar">
 						<div class="navbar-start">
@@ -85,43 +104,42 @@ const {
 							}
 						</div>
 					</nav>
-				</div>
-				<main
-					class="p-8 pt-10 lg:pt-16 lg:max-w-5xl max-w-full mx-auto min-h-screen flex flex-col justify-between"
-				>
-					<!-- Page content -->
-					<slot />
-					<Footer />
-				</main>
-			</div>
-			<!-- Drawer side -->
-			<div class="drawer-side z-40">
+				</div> -->
+			<main
+				class="p-8 pt-10 lg:pt-16 lg:max-w-5xl max-w-full mx-auto min-h-screen flex flex-col justify-between"
+			>
+				<!-- Page content -->
+				<slot />
+				<Footer />
+			</main>
+		</div>
+		<!-- Drawer side -->
+		<!-- <div class="drawer-side z-40">
 				<label
 					for="my-drawer"
 					aria-label="close sidebar"
 					class="drawer-overlay"></label>
 				<Navbar locale={locale} />
-			</div>
-		</div>
+			</div> -->
+
+		<style>
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--my-color: #252b30;
+				}
+			}
+			html,
+			body {
+				margin: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			.container-end {
+				display: flex;
+				align-items: center;
+				gap: 1rem; /* ← 横の隙間 */
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--my-color: #252b30;
-		}
-	}
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	.container-end {
-		display: flex;
-		align-items: center;
-		gap: 1rem; /* ← 横の隙間 */
-	}
-</style>

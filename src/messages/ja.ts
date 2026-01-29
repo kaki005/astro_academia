@@ -5,7 +5,13 @@ export default {
         publications: "研究業績",
         home: "ホーム",
         cv: "CV",
-        blog: "ブログ"
+        blog: "ブログ",
+        conference: "会議",
+        authors: "著者",
+        accept_rate: "採択率",
+        links: "リンク",
+        abstract: "序文",
+        thumnail: "概要図"
     },
     Location: {
         "Osaka": "日本，大阪府",

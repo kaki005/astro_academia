@@ -1,9 +1,24 @@
+---
+import { PERSON_DIC } from "@/data/person";
+import { EPersonId } from "@/types/person";
+import { EPublicationId } from "@/types/cv";
+const MATSUBARA = PERSON_DIC[EPersonId.Matsubara];
+const SAKURAI = PERSON_DIC[EPersonId.Sakurai];
+---
+
 <p>
-    I am Soshi Kakio , a second-year M.Sc. student at The University of Osaka,
+    I am Soshi Kakio, a second-year M.Sc. student at The University of Osaka,
     Japan, and a specially appointed researcher at SANKEN (The Institute of
-    Scientific and Industrial Research at The University of Osaka). My research
-    mainly focuses on data stream mining and event tensor decomposition. I am
-    fortunate to be advised by Prof. Yasushi Sakurai and Prof. Yasuko Matsubara
-    at SANKEN. I received my B.Sc. degrees from The University of Osaka advised
-    by Prof. Yasushi Sakurai in March 2024.
+    Scientific and Industrial Research at The University of Osaka).<br />
+    I am fortunate to be advised by <a href={SAKURAI.Homepage}
+        >Prof. {SAKURAI.EnglishName}</a
+    > and <a href={MATSUBARA.Homepage}>Prof. {MATSUBARA.EnglishName}</a> at SANKEN.
+</p>
+<p>
+    My research mainly focuses on data stream mining and bayesian tensor
+    decomposition [{EPublicationId.HeteroComp}].
+</p>
+<p>
+    I received my B.Sc. degrees from The University of Osaka advised by Prof.
+    Yasushi Sakurai in March 2024.
 </p>

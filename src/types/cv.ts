@@ -1,3 +1,6 @@
+import type { LinkedIcon } from "./icon";
+import type { Person } from "./person";
+import type { ImageMetadata } from "astro";
 export enum ELocationId {
   Osaka = "Osaka"
 }
@@ -5,6 +8,10 @@ export enum FacurityId {
   SANKEN = "SANKEN",
   Handai = "Handai",
   Crev = "Crev",
+}
+
+export enum EPublicationId {
+  HeteroComp = "C1"
 }
 
 export enum ERoleId {
@@ -43,29 +50,29 @@ export interface Skill {
   description: string;
 }
 
-export interface Publication {
-  title: string;
-  authors: string;
-  journal: string;
-  time: string;
-  location: string;
-  link?: string;
-  abstract?: string;
-  git_url: string;
+export class Publication {
+  constructor(
+    public id: PublicationId,
+    public title: string,
+    public authors: Person[],
+    public links: LinkedIcon[],
+    public isEnglish: boolean,
+    public thumnail?: ImageMetadata,
+    public abstract?: string,
+    public conference?: string,
+    public submit_num?: number,
+    public accepted_num?: number,
+    public location?: string,
+    public date?: string,
+  ) { }
 }
+
+
 
 export function isExperience(element: Experience | Education): element is Experience {
   return 'title' in element && 'company' in element;
 }
 
-export function isEducation(element: Education | Experience): element is Education {
-  return 'school' in element && 'degree' in element;
-}
-
 export function isSkill(element: Skill | Publication): element is Skill {
   return 'description' in element;
-}
-
-export function isPublication(element: Skill | Publication): element is Publication {
-  return 'authors' in element;
 }

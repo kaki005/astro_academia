@@ -1,6 +1,7 @@
-export interface Icon {
-    name: string;
-    href: string;
-    icon_id: string;
-    color: string;
+export class LinkedIcon {
+    constructor(
+        public name: string,
+        public href: string,
+        public icon_id: string,
+        public color: string = "black",) { }
 }

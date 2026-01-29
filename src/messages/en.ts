@@ -7,7 +7,13 @@ export default {
         publications: "Publications",
         home: "Home",
         cv: "CV",
-        blog: "Blog"
+        blog: "Blog",
+        conference: "Conference",
+        authors: "Authors",
+        accept_rate: "accpeptance rate",
+        links: "Links",
+        abstract: "Abstract",
+        thumnail: "Illustration"
     },
     Location: {
         "Osaka": "Osaka, Japan",

@@ -1,0 +1,19 @@
+---
+import type { Person } from "@/types/person";
+interface Props {
+    isEnglish: boolean;
+    person: Person;
+    isAppendComma: boolean;
+}
+const { isEnglish, person, isAppendComma } = Astro.props;
+const NAME = isEnglish ? person.EnglishName : person.JapanName;
+---
+
+{
+    person.IsMe ? (
+        <span class="font-medium underline">{NAME}</span>
+    ) : (
+        <span>{NAME}</span>
+    )
+}
+{isAppendComma && <span>, </span>}

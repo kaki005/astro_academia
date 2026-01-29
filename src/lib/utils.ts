@@ -1,21 +1,12 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { profile } from '../settings'
 import { template } from '../settings'
-
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
 
-export function highlightAuthor(authors: string): string {
-  const author = authors.split(', ')
-  if (author.includes(profile.author_name)) {
-    return authors.replace(profile.author_name, `<span class='font-medium underline'>${profile.author_name}</span>`)
-  }
-  return authors
-}
 
 export function trimExcerpt(excerpt: string): string {
   const excerptLength = template.excerptLength
