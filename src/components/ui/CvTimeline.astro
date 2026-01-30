@@ -1,5 +1,4 @@
 ---
-import { isExperience } from "@/types/cv";
 import type { Experience, Education } from "@/types/cv";
 import { Icon } from "@/components/ui/icon";
 import type { AstroComponentFactory } from "astro";
@@ -26,7 +25,7 @@ const TIME_CLASS =
 
 <!-- sm以上 -->
 <div class="hidden sm:block">
-	<ol class="items-center flex">
+	<ol class="flex">
 		{
 			ORIGINAL_LIST.map((element, index) => (
 				<li class="relative mb-0 flex-1">

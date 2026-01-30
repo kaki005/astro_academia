@@ -5,25 +5,29 @@ interface Props {
     locale?: string;
 }
 import { locales, getMessages, getTranslations } from "../../i18n";
+import { ListItem } from "@/components/ui/list";
 const { item, locale } = Astro.props;
 const messages = getMessages(locale);
 ---
 
-<h3 class="text-lg font-semibold text-heading my-2">
-    {messages.Degree[item.degree].name}
-</h3>
-<ol class="text-body mb-4">
-    <li>
-        {messages.Degree[item.degree].description}
-    </li>
-    <li>
-        <i class="fa-solid fa-building-columns"></i>{
-            messages.Facurity[item.facurity]
-        }
-    </li>
-    <li>
-        <i class="fa-solid fa-location-dot"></i>{
-            messages.Location[item.location]
-        }
-    </li>
-</ol>
+<ListItem
+    ><h3 class="text-lg font-semibold text-heading my-2">
+        {messages.Degree[item.degree].name}
+
+        <ol class="text-body mb-4">
+            <li>
+                {messages.Degree[item.degree].description}
+            </li>
+            <li>
+                <i class="fa-solid fa-building-columns"></i>{
+                    messages.Facurity[item.facurity]
+                }
+            </li>
+            <li>
+                <i class="fa-solid fa-location-dot"></i>{
+                    messages.Location[item.location]
+                }
+            </li>
+        </ol>
+    </h3>
+</ListItem>

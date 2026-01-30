@@ -1,4 +1,4 @@
-import { Experience, Education, ELocationId, FacurityId, ERoleId, EDegree, EPublicationId } from "@/types/cv";
+import { Experience, Education, ELocationId, FacurityId, ERoleId, EDegree, EPublicationId, EAwardId, Award } from "@/types/cv";
 import { type Skill, Publication } from "@/types/cv";
 import { EPersonId } from "@/types/person";
 import { PERSON_DIC } from "../data/person";
@@ -10,6 +10,7 @@ export const experiences: Experience[] = [
 ];
 
 export const education: Education[] = [
+	new Education(EDegree.HighSchool, FacurityId.Yoka, new Date(2017, 3), ELocationId.Hyogo, new Date(2020, 2)),
 	new Education(EDegree.Bachelor, FacurityId.Handai, new Date(2020, 3), ELocationId.Osaka, new Date(2024, 2)),
 	new Education(EDegree.Master, FacurityId.Handai, new Date(2024, 3), ELocationId.Osaka, new Date(2026, 2)),
 	new Education(EDegree.Doctor, FacurityId.Handai, new Date(2026, 3), ELocationId.Osaka),
@@ -39,3 +40,7 @@ export const publications: Publication[] = [
 		'April 13--17, 2026',
 	)
 ];
+
+export const AWARDS: Award[] = [
+	new Award(EAwardId.Kougakusyou, "https://www.sanken.osaka-u.ac.jp/news/topics_20240319.html", new Date(2024, 2))
+]

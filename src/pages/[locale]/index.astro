@@ -2,21 +2,20 @@
 import "flowbite";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { profile } from "../../settings";
 import ProfilePictures from "@/assets/profile_pictures.jpg";
 import CvTimeline from "../../components/ui/CvTimeline.astro";
 import SocialIcons from "../../components/ui/SocialIcons.astro";
 import PublicationItem from "../../components/ui/PublicationItem.astro";
+import AwardItem from "../../components/ui/AwardItem.astro";
 import EducaionItem from "../../components/ui/EducationItem.astro";
 import ExperienceItem from "../../components/ui/ExperienceItem.astro";
 import { locales, getMessages, getTranslations } from "../../i18n";
 import { _getStaticPaths, GetIntroduction } from "../../i18n";
 import { List, ListItem } from "@/components/ui/list";
-const { fullName, title, institute } = profile;
 const { locale } = Astro.params;
 const messages = getMessages(locale);
 const Introduction = GetIntroduction(locale);
-import { experiences, education, skills, publications } from "../../data/cv";
+import { experiences, education, publications, AWARDS } from "../../data/cv";
 export const getStaticPaths = _getStaticPaths; // 必須
 ---
 
@@ -76,6 +75,21 @@ export const getStaticPaths = _getStaticPaths; // 必須
 				<List>
 					{publications.map((item) => (
 						<PublicationItem item={item} locale={locale} />
+					))}
+				</List>
+			</section>
+		)
+	}
+	{
+		AWARDS.length > 0 && (
+			<section class="mb-12">
+				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
+					<i class="fa-regular fa-file-lines" />
+					{messages.common.awards}
+				</h1>
+				<List>
+					{AWARDS.map((item) => (
+						<AwardItem item={item} locale={locale} />
 					))}
 				</List>
 			</section>

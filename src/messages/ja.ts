@@ -15,15 +15,21 @@ export default {
         thumnail: "概要図",
         detail: "詳細",
         now: "現在",
+        awards: "賞状",
     },
     Location: {
         "Osaka": "日本，大阪府",
+        "Hyogo": "日本，兵庫県",
     },
     Role: {
         Engineer: "デジタル技術エンジニア",
         ResearcherS: "特任研究員",
     },
     Degree: {
+        HighSchool: {
+            name: "高等学校",
+            description: "普通科",
+        },
         Bachelor: {
             name: "学士（工学）",
             description: "工学部電子情報工学科",
@@ -38,6 +44,7 @@ export default {
         },
     },
     Facurity: {
+        Yoka: "兵庫県立八鹿高等学校",
         SANKEN: "産業科学研究所(SANKEN)",
         Handai: "大阪大学",
         Crev: "Crev",

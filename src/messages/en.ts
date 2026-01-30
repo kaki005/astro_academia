@@ -17,15 +17,21 @@ export default {
         thumnail: "Illustration",
         detail: "detail",
         now: "On",
+        awards: "Awards",
     },
     Location: {
         "Osaka": "Osaka, Japan",
+        "Hyogo": "Hyogo, Japan",
     },
     Role: {
         Engineer: "Digital Technology Engineer",
         ResearcherS: "Specially Appointed Researcher",
     },
     Degree: {
+        HighSchool: {
+            name: "High School Diploma",
+            description: "General Course",
+        },
         Bachelor: {
             name: "Bachelor",
             description: "Department of Electronic and Information Engineering, School of Engineering",
@@ -40,6 +46,7 @@ export default {
         },
     },
     Facurity: {
+        Yoka: "Yoka High School",
         SANKEN: "SANKEN, The University of Osaka",
         Handai: "The University of Osaka",
         Crev: "Crev",

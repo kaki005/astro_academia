@@ -1,0 +1,15 @@
+---
+import type { Award } from "@/types/cv";
+interface Props {
+    item: Award;
+    locale?: string;
+}
+import { locales, getMessages, getTranslations } from "../../i18n";
+import { ListItem } from "@/components/ui/list";
+const { item, locale } = Astro.props;
+const messages = getMessages(locale);
+---
+
+<ListItem>
+    <text></text>
+</ListItem>

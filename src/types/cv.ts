@@ -2,9 +2,11 @@ import type { LinkedIcon } from "./icon";
 import type { Person } from "./person";
 import type { ImageMetadata } from "astro";
 export enum ELocationId {
-  Osaka = "Osaka"
+  Osaka = "Osaka",
+  Hyogo = "Hyogo",
 }
 export enum FacurityId {
+  Yoka = "Yoka",
   SANKEN = "SANKEN",
   Handai = "Handai",
   Crev = "Crev",
@@ -19,6 +21,7 @@ export enum ERoleId {
   ResearcherS = "ResearcherS"
 }
 export enum EDegree {
+  HighSchool = "HighSchool",
   Bachelor = "Bachelor",
   Master = "Master",
   Doctor = "Doctor",
@@ -52,7 +55,7 @@ export interface Skill {
 
 export class Publication {
   constructor(
-    public id: PublicationId,
+    public id: EPublicationId,
     public title: string,
     public authors: Person[],
     public links: LinkedIcon[],
@@ -67,12 +70,15 @@ export class Publication {
   ) { }
 }
 
-
-
-export function isExperience(element: Experience | Education): element is Experience {
-  return 'title' in element && 'company' in element;
+export enum EAwardId {
+  Kougakusyou = "Kougakusyou"
 }
 
-export function isSkill(element: Skill | Publication): element is Skill {
-  return 'description' in element;
+
+export class Award {
+  constructor(
+    public ID: EAwardId,
+    public Link: string,
+    public Day: Date,
+  ) { }
 }
