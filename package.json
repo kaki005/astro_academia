@@ -22,6 +22,7 @@
     "flowbite": "^4.0.1",
     "lucide-react": "^0.563.0",
     "lucide-static": "^0.563.0",
+    "open-graph-scraper": "^6.11.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "simple-icons": "^16.6.1",
