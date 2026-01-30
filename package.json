@@ -13,6 +13,7 @@
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^5.1.5",
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "@i18n-tiny/astro": "^1.1.1",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",

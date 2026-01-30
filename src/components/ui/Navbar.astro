@@ -12,7 +12,6 @@ type Props = {
 };
 const { locale = "en" } = Astro.props;
 const messages = getMessages(locale);
-
 const isBlogPopulated = await getCollection("blog").then(
 	(collection) => collection.length > 0,
 );
@@ -41,8 +40,11 @@ const MY_NAME = getName(EPersonId.Me, locale);
 					<li>
 						<a
 							href={`${import.meta.env.BASE_URL}/${locale}`}
-							class="text-lg">{messages.common.home}</a
+							class="text-3xl"
 						>
+							<i class="fa-solid fa-house"></i>
+							{messages.common.home}
+						</a>
 					</li>
 					<!-- <li>
 						<a
@@ -66,8 +68,9 @@ const MY_NAME = getName(EPersonId.Me, locale);
 					<li>
 						<a
 							href={`${import.meta.env.BASE_URL}/${locale}/blog`}
-							class="text-lg"
+							class="text-3xl"
 						>
+							<i class="fa-solid fa-blog"></i>
 							{messages.common.blog}
 						</a>
 					</li>

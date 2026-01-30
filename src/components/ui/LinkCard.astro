@@ -2,16 +2,18 @@
 // インポート
 import ogs from "open-graph-scraper";
 import { Icon } from "astro-icon/components";
+import { Badge } from "@/components/ui/badge";
 import { Blog } from "../../types/blog";
 import Noimage from "../../assets/noimage_placeholder.png";
-
+import TimeDisplay from "./TimeDisplay.astro";
 // propsの指定
 interface Props {
     blog: Blog;
+    locale?: string;
 }
 
 // propsを分割代入
-const { blog } = Astro.props;
+const { blog, locale } = Astro.props;
 
 // OGSで情報を取得
 async function getOpenGraphData(url: string) {
@@ -41,6 +43,14 @@ const ogDescription = websiteData?.ogDescription || "";
     <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
         {ogTitle}
     </h5>
+    <TimeDisplay time={blog.Date} locale={locale} />
+    {
+        blog.Badges.map((badge) => (
+            <Badge class=`${badge.ClassName} rounded m-1` variant={badge.Variant}>
+                {badge.Name}
+            </Badge>
+        ))
+    }
     <p class="mb-6 text-body">
         {ogDescription}
     </p>

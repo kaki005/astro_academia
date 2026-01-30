@@ -5,7 +5,13 @@ type Props = {
 };
 const { locale } = Astro.props;
 const pathname = Astro.url.pathname; // "/en/blog"
-const segment = pathname.split("/").filter(Boolean).at(-1);
+var segment = pathname.split("/").filter(Boolean).at(-1);
+for (const v of locales) {
+    if (segment == v) {
+        segment = "";
+        break;
+    }
+}
 ---
 
 <style>

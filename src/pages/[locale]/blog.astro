@@ -11,6 +11,6 @@ const messages = getMessages(locale);
 
 <Layout locale={locale}>
     <div class="flex flex-col sm:flex-row gap-4">
-        {BLOGS.map((blog) => <LinkCard blog={blog} />)}
+        {BLOGS.map((blog) => <LinkCard blog={blog} locale={locale} />)}
     </div>
 </Layout>
