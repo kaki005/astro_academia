@@ -5,6 +5,8 @@ import SocialIcons from "./SocialIcons.astro";
 import ProfilePictures from "@/assets/profile_pictures.jpg";
 import { getCollection } from "astro:content";
 import { locales, getMessages, getTranslations } from "../../i18n";
+import { getName } from "@/data/person";
+import { EPersonId } from "@/types/person";
 type Props = {
 	locale?: string;
 };
@@ -14,8 +16,9 @@ const messages = getMessages(locale);
 const isBlogPopulated = await getCollection("blog").then(
 	(collection) => collection.length > 0,
 );
-
 const { fullName, title } = profile;
+
+const MY_NAME = getName(EPersonId.Me, locale);
 ---
 
 <aside
@@ -29,9 +32,8 @@ const { fullName, title } = profile;
 					src={ProfilePictures}
 					alt={`Profile picture of ${fullName}`}
 				/>
-				<h1 class="text-lg font-black mt-8 hidden lg:block">
-					{title}
-					<span>{fullName}</span>
+				<h1 class="text-4xl font-black mt-8 hidden lg:block">
+					{MY_NAME}
 				</h1>
 			</div>
 			<div class="mx-4 mt-16">
@@ -48,30 +50,27 @@ const { fullName, title } = profile;
 							class="text-lg">Research</a
 						>
 					</li> -->
-					<li>
+					<!-- <li>
 						<a
 							href={`${import.meta.env.BASE_URL}/${locale}/papers`}
 							class="text-lg">{messages.common.publications}</a
 						>
-					</li>
+					</li> -->
 					<!-- <li>
 						<a
 							href={`${import.meta.env.BASE_URL}/${locale}/cv`}
 							class="text-lg">{messages.common.cv}</a
 						>
 					</li> -->
-					{
-						isBlogPopulated && (
-							<li>
-								<a
-									href={`${import.meta.env.BASE_URL}/${locale}/blog/1`}
-									class="text-lg"
-								>
-									{messages.common.blog}
-								</a>
-							</li>
-						)
-					}
+
+					<li>
+						<a
+							href={`${import.meta.env.BASE_URL}/${locale}/blog`}
+							class="text-lg"
+						>
+							{messages.common.blog}
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>

@@ -13,7 +13,6 @@ import { seo, profile, template } from "../settings";
 import Footer from "../components/ui/Footer.astro";
 import { getName } from "@/data/person";
 import { EPersonId } from "@/types/person";
-
 type Props = {
 	title?: string;
 	description?: string;
@@ -38,16 +37,34 @@ const MY_NAME = getName(EPersonId.Me, locale);
 		<Head title={title} description={description} image={image} />
 	</head>
 	<body>
-		<Header class="bg-white">
+		<Header class="bg-base-200">
 			<HeaderContent>
-				<Logo class="hidden sm:flex">
-					<LogoImage
-						src={ProfilePictures}
-						alt="soshi kakio"
-						class="size-16 ml-2"
-					/>
-					<LogoText class="text-5xl text-black">{MY_NAME}</LogoText>
-				</Logo>
+				<div>
+					{
+						template.menu_left && <DarkLightController />
+						/* <ThemeSelector transition:persist /> */
+					}
+					<label
+						for="my-drawer"
+						class="btn btn-square btn-ghost sm:hidden"
+					>
+						<BetterIcon>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								class="size-6 stroke-current"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+								></path>
+							</svg>
+						</BetterIcon>
+					</label>
+				</div>
 				<HeaderActions class="ml-auto">
 					<SwitichLang locale={locale} />
 					<DarkLightController />
@@ -69,13 +86,13 @@ const MY_NAME = getName(EPersonId.Me, locale);
 				</main>
 			</div>
 			<!-- Drawer side -->
-			<!-- <div class="drawer-side z-40">
+			<div class="drawer-side z-40">
 				<label
 					for="my-drawer"
 					aria-label="close sidebar"
 					class="drawer-overlay"></label>
 				<Navbar locale={locale} />
-			</div> -->
+			</div>
 
 			<style>
 				@media (prefers-color-scheme: dark) {

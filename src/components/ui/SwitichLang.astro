@@ -4,6 +4,8 @@ type Props = {
     locale?: string;
 };
 const { locale } = Astro.props;
+const pathname = Astro.url.pathname; // "/en/blog"
+const segment = pathname.split("/").filter(Boolean).at(-1);
 ---
 
 <style>
@@ -16,14 +18,14 @@ const { locale } = Astro.props;
 
 <nav>
     <a
-        href={`${import.meta.env.BASE_URL}/ja`}
+        href={`${import.meta.env.BASE_URL}/ja/${segment}/`}
         aria-current={locale === "ja" ? "page" : undefined}
     >
         🇯🇵日本語
     </a>
     |
     <a
-        href={`${import.meta.env.BASE_URL}/en`}
+        href={`${import.meta.env.BASE_URL}/en/${segment}/`}
         aria-current={locale === "en" ? "page" : undefined}
     >
         🇺🇸English
