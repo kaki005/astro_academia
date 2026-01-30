@@ -11,7 +11,7 @@ export default {
         blog: "Blog",
         conference: "Conference",
         authors: "Authors",
-        accept_rate: "accpeptance rate",
+        accept_rate: "AcceptRate",
         links: "Links",
         abstract: "Abstract",
         thumnail: "Illustration",
@@ -50,5 +50,8 @@ export default {
         SANKEN: "SANKEN, The University of Osaka",
         Handai: "The University of Osaka",
         Crev: "Crev",
-    }
+    },
+    Award: {
+        Kougakusyou: "Osaka University Engineering Award",
+    },
 }

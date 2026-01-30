@@ -2,11 +2,9 @@
 import { locales, getMessages, getTranslations } from "../../i18n";
 interface Props {
     locale?: string;
-    start: Date;
-    end?: Date;
-    tilde_style?: string;
+    time?: Date;
 }
-const { locale, start, end, tilde_style } = Astro.props;
+const { locale, time } = Astro.props;
 const { class: className = "" } = Astro.props;
 const messages = getMessages(locale);
 function formatDate(date: Date, lang?: string) {
@@ -19,18 +17,12 @@ const TIME_CLASS =
     "bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded";
 ---
 
-<span class={className}>
-    <time class={TIME_CLASS} datetime={start.toISOString()}>
-        {formatDate(start, locale)}
-    </time>
-    <text class=`text-2xl font-light relative ml-1 ${tilde_style}`>–</text>
-    {
-        end != null ? (
-            <time class={TIME_CLASS} datetime={start.toISOString()}>
-                {formatDate(end, locale)}
-            </time>
-        ) : (
-            <time class={TIME_CLASS}>{messages.common.now}</time>
-        )
-    }
-</span>
+{
+    time == null ? (
+        <time class={TIME_CLASS}>{messages.common.now}</time>
+    ) : (
+        <time class={TIME_CLASS} datetime={time.toISOString()}>
+            {formatDate(time, locale)}
+        </time>
+    )
+}

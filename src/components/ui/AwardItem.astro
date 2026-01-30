@@ -6,10 +6,13 @@ interface Props {
 }
 import { locales, getMessages, getTranslations } from "../../i18n";
 import { ListItem } from "@/components/ui/list";
+import TimeDisplay from "../ui/TimeDisplay.astro";
 const { item, locale } = Astro.props;
 const messages = getMessages(locale);
 ---
 
-<ListItem>
-    <text></text>
+<ListItem class="flex items-center">
+    <TimeDisplay time={item.Day} locale={locale} /><a href={item.Link}
+        >{messages.Award[item.ID]}</a
+    >
 </ListItem>

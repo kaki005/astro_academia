@@ -22,7 +22,7 @@ const messages = getMessages(locale);
 <ListItem>
   <div>
     <h2 class="text-lg font-bold mb-2">[{item.id}] {item.title}</h2>
-    <dl class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
+    <dl class="grid grid-cols-[auto,1fr] gap-x-2 gap-y-1">
       <dt class={KEY_CLASS}>{messages.common.authors}</dt>
       <dd>{item.authors.map((author, i)=> <LinkedAuthorText isEnglish={item.isEnglish} person={author} isAppendComma={i < item.authors.length-1}/>)}</dd>
 
@@ -48,17 +48,22 @@ const messages = getMessages(locale);
           </div>
         </dd>
       )}
+      <dt class={KEY_CLASS}>{messages.common.abstract}</dt>
+      <dd>
+          <Collapsible class="relative w-full">
+            <CollapsibleTrigger class="w-16"><text class=`relative w-full`>{messages.common.detail}</text></CollapsibleTrigger>
+            <CollapsibleContent>
+              <p>{item.abstract}</p>
+            </CollapsibleContent>
+        </Collapsible>
+      </dd>
+
       {item.thumnail != null && (
         <dt class={KEY_CLASS}>{messages.common.thumnail}</dt>
         <dd><Image src={item.thumnail} alt="thumnail" class="relative w-full"/></dd>
       )}
     </dl>
 
-    <Collapsible class="relative w-full">
-      <CollapsibleTrigger><text class=`${KEY_CLASS} relative w-full`>{messages.common.abstract}</text></CollapsibleTrigger>
-      <CollapsibleContent>
-        <p>{item.abstract}</p>
-      </CollapsibleContent>
-    </Collapsible>
+
   </div>
 </ListItem>

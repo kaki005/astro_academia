@@ -2,6 +2,7 @@
 import "flowbite";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import { Icon } from "@/components/ui/icon";
 import ProfilePictures from "@/assets/profile_pictures.jpg";
 import CvTimeline from "../../components/ui/CvTimeline.astro";
 import SocialIcons from "../../components/ui/SocialIcons.astro";
@@ -26,10 +27,12 @@ export const getStaticPaths = _getStaticPaths; // 必須
 			<i class="fa-solid fa-user"></i>{messages.common.introduction}
 		</h1>
 		<Introduction />
-		<h2 class="text-2xl mt-2">
-			{messages.common.links}
-		</h2>
-		<SocialIcons class="w-52" />
+		<div class="flex mt-2">
+			<h2 class="text-2xl mr-2">
+				{messages.common.links}
+			</h2>
+			<SocialIcons class="w-52" />
+		</div>
 	</section>
 
 	{
@@ -83,8 +86,8 @@ export const getStaticPaths = _getStaticPaths; // 必須
 	{
 		AWARDS.length > 0 && (
 			<section class="mb-12">
-				<h1 class="text-4xl font-bold mb-6 border-b pb-2">
-					<i class="fa-regular fa-file-lines" />
+				<h1 class="text-4xl font-bold mb-6 border-b pb-2 flex">
+					<i class="fa-solid fa-trophy" />
 					{messages.common.awards}
 				</h1>
 				<List>

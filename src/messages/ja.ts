@@ -48,5 +48,8 @@ export default {
         SANKEN: "産業科学研究所(SANKEN)",
         Handai: "大阪大学",
         Crev: "Crev",
-    }
+    },
+    Award: {
+        Kougakusyou: "令和五年度 大阪大学工学賞",
+    },
 }
