@@ -1,5 +1,4 @@
-import { Experience, Education, ELocationId, FacurityId, ERoleId, EDegree, EPublicationId, EAwardId, Award } from "@/types/cv";
-import { type Skill, Publication } from "@/types/cv";
+import { Experience, Education, ELocationId, FacurityId, ERoleId, EDegree, Publication, EPublicationId, EAwardId, Award } from "@/types/cv";
 import { EPersonId } from "@/types/person";
 import { PERSON_DIC } from "../data/person";
 import { LinkedIcon } from "@/types/icon";
@@ -15,8 +14,6 @@ export const education: Education[] = [
 	new Education(EDegree.Master, FacurityId.Handai, new Date(2024, 3), ELocationId.Osaka, new Date(2026, 2)),
 	new Education(EDegree.Doctor, FacurityId.Handai, new Date(2026, 3), ELocationId.Osaka),
 ];
-
-export const skills: Skill[] = []
 
 export const publications: Publication[] = [
 	new Publication(

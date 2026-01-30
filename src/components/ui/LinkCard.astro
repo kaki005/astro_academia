@@ -1,0 +1,68 @@
+---
+// インポート
+import ogs from "open-graph-scraper";
+import { Icon } from "astro-icon/components";
+import { Blog } from "../../types/blog";
+import Noimage from "../../assets/noimage_placeholder.png";
+
+// propsの指定
+interface Props {
+    blog: Blog;
+}
+
+// propsを分割代入
+const { blog } = Astro.props;
+
+// OGSで情報を取得
+async function getOpenGraphData(url: string) {
+    const options = { url };
+    try {
+        const { result } = await ogs(options);
+        return result;
+    } catch (error) {
+        console.error("Error fetching Open Graph Data:", error);
+        return {};
+    }
+}
+
+// 情報を変数に格納（自分でpropsにせってした場合はそれが優先される）
+const websiteData = await getOpenGraphData(blog.URL);
+const ogImage = websiteData?.ogImage?.[0]?.url || Noimage.src;
+const ogTitle = websiteData?.ogTitle || "タイトルの取得に失敗しました";
+const ogDescription = websiteData?.ogDescription || "";
+---
+
+<div
+    class="bg-neutral-primary-soft block max-w-sm p-2 border border-default rounded-base shadow-xs"
+>
+    <a href={blog.URL}>
+        <img class="rounded-base" src={ogImage} alt="" />
+    </a>
+    <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+        {ogTitle}
+    </h5>
+    <p class="mb-6 text-body">
+        {ogDescription}
+    </p>
+    <a
+        href={blog.URL}
+        class="inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+    >
+        読む
+        <svg
+            class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+            ><path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 12H5m14 0-4 4m4-4-4-4"></path></svg
+        >
+    </a>
+</div>

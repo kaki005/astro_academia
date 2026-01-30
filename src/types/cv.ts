@@ -48,11 +48,6 @@ export class Education {
   ) { }
 }
 
-export interface Skill {
-  title: string;
-  description: string;
-}
-
 export class Publication {
   constructor(
     public id: EPublicationId,
