@@ -4,8 +4,11 @@ import SocialIcons from "./SocialIcons.astro";
 import ProfilePictures from "@/assets/profile_pictures.jpg";
 import { getCollection } from "astro:content";
 import { locales, getMessages, getTranslations } from "../../i18n";
+import { List, ListItem } from "@/components/ui/list";
 import { getName } from "@/data/person";
 import { EPersonId } from "@/types/person";
+import { SOCIALS } from "@/data/socials";
+import SocialIconItem from "./SocialIconItem.astro";
 type Props = {
 	locale?: string;
 };
@@ -15,6 +18,7 @@ const isBlogPopulated = await getCollection("blog").then(
 	(collection) => collection.length > 0,
 );
 const MY_NAME = getName(EPersonId.Me, locale);
+const ICON_CLASS = "text-3xl text-black no-underline";
 ---
 
 <aside
@@ -37,45 +41,33 @@ const MY_NAME = getName(EPersonId.Me, locale);
 					<li>
 						<a
 							href={`${import.meta.env.BASE_URL}/${locale}`}
-							class="text-3xl"
+							class={ICON_CLASS}
 						>
 							<i class="fa-solid fa-house"></i>
 							{messages.common.home}
 						</a>
 					</li>
-					<!-- <li>
-						<a
-							href={`${import.meta.env.BASE_URL}/research`}
-							class="text-lg">Research</a
-						>
-					</li> -->
-					<!-- <li>
-						<a
-							href={`${import.meta.env.BASE_URL}/${locale}/papers`}
-							class="text-lg">{messages.common.publications}</a
-						>
-					</li> -->
-					<!-- <li>
-						<a
-							href={`${import.meta.env.BASE_URL}/${locale}/cv`}
-							class="text-lg">{messages.common.cv}</a
-						>
-					</li> -->
-
 					<li>
 						<a
 							href={`${import.meta.env.BASE_URL}/${locale}/blog`}
-							class="text-3xl"
+							class={ICON_CLASS}
 						>
 							<i class="fa-solid fa-blog"></i>
 							{messages.common.blog}
 						</a>
 					</li>
+					{
+						SOCIALS.map((icon) => (
+							<li>
+								<a href={icon.href} class=`${ICON_CLASS} flex`>
+										<SocialIconItem item={icon}/>
+										{icon.name}
+								</a>
+							</li>
+						))
+					}
 				</ul>
 			</div>
-		</div>
-		<div class="mx-4">
-			<SocialIcons />
 		</div>
 	</div>
 </aside>

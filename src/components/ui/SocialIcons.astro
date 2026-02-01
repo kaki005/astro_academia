@@ -1,6 +1,7 @@
 ---
 import { SOCIALS } from "@/data/socials";
 import { Icon } from "@/components/ui/icon";
+import SocialIconItem from "./SocialIconItem.astro";
 const { class: className = "" } = Astro.props;
 ---
 
@@ -8,16 +9,7 @@ const { class: className = "" } = Astro.props;
 	{
 		SOCIALS.map((item) => (
 			<a href={item.href}>
-				{/* <i class={`${item.icon_id} fa-2x`} /> */}
-				{item.color != null ? (
-					<Icon
-						name={item.icon_id}
-						class="w-8 h-8 m-1"
-						color={item.color}
-					/>
-				) : (
-					<Icon name={item.icon_id} class="w-8 h-8 m-1" />
-				)}
+				<SocialIconItem item={item} />
 			</a>
 		))
 	}

@@ -1,0 +1,18 @@
+---
+import { Icon } from "@/components/ui/icon";
+import { LinkedIcon } from "../../types/icon";
+interface Props {
+	item: LinkedIcon;
+}
+const { item } = Astro.props;
+const {class: className} = Astro.props;
+---
+
+
+{
+	item.color != null ? (
+		<i class=`${item.icon_id} ${className} text-[${item.color}]`/>
+	) : (
+		<i class=`${item.icon_id} ${className} text-black`/>
+	)
+}
