@@ -1,4 +1,8 @@
 export default {
+    SEO: {
+        title: "垣尾 颯志",
+        description: "垣尾颯志のウェブサイト",
+    },
     common: {
         introduction: "自己紹介",
         education: "学歴",

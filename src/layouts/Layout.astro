@@ -9,23 +9,15 @@ import { Logo, LogoImage, LogoText } from "@/components/ui/logo";
 import SocialIcons from "../components/ui/SocialIcons.astro";
 import SwitichLang from "@/components/ui/SwitichLang.astro";
 import Head from "../components/Head.astro";
-import { seo, profile, template } from "../settings";
+import { template } from "../settings";
 import Footer from "../components/ui/Footer.astro";
 import { getName } from "@/data/person";
 import { EPersonId } from "@/types/person";
 type Props = {
-	title?: string;
-	description?: string;
-	image?: string;
 	locale?: string;
 };
 
-const {
-	title = seo.default_title,
-	description = seo.default_description,
-	image = seo.default_image,
-	locale = "en",
-} = Astro.props;
+const { locale = "en" } = Astro.props;
 const MY_NAME = getName(EPersonId.Me, locale);
 ---
 
@@ -34,7 +26,7 @@ const MY_NAME = getName(EPersonId.Me, locale);
 	<head>
 		{template.transitions && <ClientRouter />}
 
-		<Head title={title} description={description} image={image} />
+		<Head locale={locale} />
 	</head>
 	<body>
 		<Header class="bg-base-200">

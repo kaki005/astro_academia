@@ -1,6 +1,10 @@
-import { FacurityId } from "@/types/cv";
 
 export default {
+    SEO: {
+        title: "Soshi Kakio",
+        description: "Soshi Kakio's personal websites.",
+    },
+
     common: {
         introduction: "About me",
         education: "Education",
