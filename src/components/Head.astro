@@ -11,6 +11,7 @@ const { locale } = Astro.props;
 const messages = getMessages(locale);
 const title = messages.SEO.title;
 const description = messages.SEO.description;
+const imageUrl = new URL(ProfilePictures.src, Astro.url).pathname;
 ---
 
 <meta charset="utf-8" />
@@ -38,14 +39,14 @@ const description = messages.SEO.description;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ProfilePictures.src} />
+<meta property="og:image" content={imageUrl} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={ProfilePictures.src} />
+<meta property="twitter:image" content={imageUrl} />
 <!-- <script src="https://kit.fontawesome.com/e70eb493d2.js" crossorigin="anonymous"
 ></script> -->
 <!-- Theme selector scripts -->
