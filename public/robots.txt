@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://kaki005.github.io/astro_academia/sitemap-index.xml
