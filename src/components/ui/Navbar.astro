@@ -6,6 +6,7 @@ import { getCollection } from "astro:content";
 import { locales, getMessages, getTranslations } from "../../i18n";
 import { List, ListItem } from "@/components/ui/list";
 import { getName } from "@/data/person";
+import EncodedAnchor from "./EncodedAnchor.astro";
 import { EPersonId } from "@/types/person";
 import { SOCIALS } from "@/data/socials";
 import SocialIconItem from "./SocialIconItem.astro";
@@ -18,25 +19,25 @@ const isBlogPopulated = await getCollection("blog").then(
 	(collection) => collection.length > 0,
 );
 const MY_NAME = getName(EPersonId.Me, locale);
-const ICON_CLASS = "text-3xl text-black no-underline";
+const ICON_CLASS = "text-2xl no-link-style";
 ---
 
 <aside
-	class="px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col"
+	class="px-4 pt-4 h-screen w-[14rem] bg-base-200 text-base-content flex flex-col z-50"
 >
 	<div class="flex flex-col my-8 justify-between h-full">
 		<div>
 			<div class="flex justify-center items-center flex-col">
 				<Image
-					class="mask mask-circle size-44"
+					class="mask mask-circle size-44 z-50"
 					src={ProfilePictures}
 					alt={`Profile picture of ${MY_NAME}`}
 				/>
-				<h1 class="text-4xl font-black mt-8">
+				<h1 class="text-3xl font-black mt-8">
 					{MY_NAME}
 				</h1>
 			</div>
-			<div class="mx-4 mt-16">
+			<div class=" mt-16">
 				<ul class="space-y-4 menu grow shrink menu-md overflow-y-auto">
 					<li>
 						<a
@@ -59,9 +60,9 @@ const ICON_CLASS = "text-3xl text-black no-underline";
 					{
 						SOCIALS.map((icon) => (
 							<li>
-								<a href={icon.href} class=`${ICON_CLASS} flex`>
-										<SocialIconItem item={icon}/>
-										{icon.name}
+								<a href={icon.href} class=`${ICON_CLASS} flex` data-encoded={icon.isEncoded ? icon.href : undefined}>
+									<SocialIconItem item={icon}/>
+									{icon.name}
 								</a>
 							</li>
 						))

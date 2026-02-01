@@ -2,14 +2,19 @@
 import { SOCIALS } from "@/data/socials";
 import { Icon } from "@/components/ui/icon";
 import SocialIconItem from "./SocialIconItem.astro";
+import EncodedAnchor from "./EncodedAnchor.astro";
 const { class: className = "" } = Astro.props;
 ---
 
 <div class=`flex flex-wrap justify-between items-center ${className}`>
 	{
 		SOCIALS.map((item) => (
-			<a href={item.href}>
-				<SocialIconItem item={item} />
+			<a
+				href={item.href}
+				data-encoded={item.isEncoded ? item.href : undefined}
+				class="no-link-style"
+			>
+				<SocialIconItem item={item} class="text-4xl" />
 			</a>
 		))
 	}

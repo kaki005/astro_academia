@@ -5,14 +5,9 @@ interface Props {
 	item: LinkedIcon;
 }
 const { item } = Astro.props;
-const {class: className} = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
-
-{
-	item.color != null ? (
-		<i class=`${item.icon_id} ${className} text-[${item.color}]`/>
-	) : (
-		<i class=`${item.icon_id} ${className} text-black`/>
-	)
-}
+<i
+	class=`${item.icon_id} ${className} text-${item.color != null ? "[" + item.color + "]" : "black"}`
+></i>

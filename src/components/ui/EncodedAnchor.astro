@@ -1,0 +1,28 @@
+---
+interface Props {
+    href: string;
+    isEncoded: boolean;
+}
+const { href, isEncoded } = Astro.props;
+const { class: className } = Astro.props;
+const uid = crypto.randomUUID();
+---
+
+{
+    isEncoded ? (
+        <a id={uid} class={className}>
+            <slot />
+        </a>
+    ) : (
+        <a href={href} id={uid} class={className}>
+            <slot />
+        </a>
+    )
+}
+{
+    isEncoded && (
+        <script is:inline define:vars={{ uid, href }}>
+            const a = document.getElementById(uid); a.href = atob(href);
+        </script>
+    )
+}

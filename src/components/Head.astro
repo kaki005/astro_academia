@@ -78,3 +78,14 @@ const imageUrl = new URL(ProfilePictures.src, Astro.url).pathname;
 <script type="module">
   import "flowbite";
 </script>
+<script is:inline>
+  const decodeLinks = () => {
+    document.querySelectorAll("[data-encoded]").forEach((item) => {
+      if (item.dataset.decoded) return;
+      item.href = atob(item.dataset.encoded);
+      item.dataset.decoded = "true";
+    });
+  };
+
+  document.addEventListener("astro:page-load", decodeLinks);
+</script>

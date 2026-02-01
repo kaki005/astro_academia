@@ -74,7 +74,8 @@
     }
 }
 
-a {
+a:not(.no-link-style) {
+    /*no-link-styleを除外*/
     @apply text-blue-600 underline underline-offset-2;
 }
 
