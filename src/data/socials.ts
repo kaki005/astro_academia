@@ -12,6 +12,6 @@ export const SOCIALS: LinkedIcon[] = [
     new LinkedIcon("E-mail", "bWFpbHRvOnNrYWtpbzg4QHNhbmtlbi5vc2FrYS11LmFjLmpw", "fa-regular fa-envelope", true, "#FF0000"),
     new LinkedIcon("Linkedin", "https://www.linkedin.com/feed/", "fa-brands fa-linkedin", false, "#0A66C2"),
     new LinkedIcon("GitHub", "https://github.com/kaki005", "fa-brands fa-github", false, "black"),
-    new LinkedIcon("ORCID", "https://orcid.org/my-orcid?orcid=0009-0006-6200-3858", "fa-brands fa-orcid", false, "#A6CE39"),
+    new LinkedIcon("ORCID", "https://orcid.org/0009-0006-6200-3858", "fa-brands fa-orcid", false, "#A6CE39"),
     new LinkedIcon("Labo", "https://www.dm.sanken.osaka-u.ac.jp/", "fa-solid fa-laptop-code", false, "gray"),
 ]
