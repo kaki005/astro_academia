@@ -3,6 +3,7 @@ import { EPersonId } from "@/types/person";
 import { PERSON_DIC } from "../data/person";
 import { LinkedIcon } from "@/types/icon";
 import HeteroCompThumnail from "@/assets/heterocomp.png";
+import WebconfThumnail from "@/assets/www_logo.jpg";
 export const experiences: Experience[] = [
 	new Experience(FacurityId.Crev, new Date(2021, 3), ERoleId.Engineer, ELocationId.Osaka),
 	new Experience(FacurityId.SANKEN, new Date(2024, 3), ERoleId.ResearcherS, ELocationId.Osaka),
@@ -20,8 +21,10 @@ export const publications: Publication[] = [
 		EPublicationId.HeteroComp,
 		'Multi-Aspect Mining and Anomaly Detection for Heterogeneous Tensor Streams',
 		[PERSON_DIC[EPersonId.Me], PERSON_DIC[EPersonId.Matsubara], PERSON_DIC[EPersonId.Ren], PERSON_DIC[EPersonId.Sakurai]],
-		[new LinkedIcon("code&datasets", "https://github.com/kaki005/HeteroComp", "github")],
+		[new LinkedIcon("code&datasets", "https://github.com/kaki005/HeteroComp", "fa-brands fa-github", false)],
 		true,
+		"https://www2026.thewebconf.org/",
+		WebconfThumnail,
 		HeteroCompThumnail,
 		"Analysis and anomaly detection in event tensor streams consisting of timestamps and multiple attributes —such as communication logs(time, IP address, packet length)—are essential tasks in data mining. " +
 		"While existing tensor decomposition and anomaly detection methods provide useful insights, they face the following two limitations. " +

@@ -3,7 +3,6 @@ export class Badge {
     constructor(
         public Name: string,
         public ClassName: string,
-        public Variant?: string,
     ) { }
 };
 

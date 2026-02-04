@@ -12,7 +12,6 @@ const messages = getMessages(locale);
 ---
 
 <ListItem class="flex items-center">
-    <TimeDisplay time={item.Day} locale={locale} /><a href={item.Link}
-        >{messages.Award[item.ID]}</a
-    >
+    <TimeDisplay time={item.Day} locale={locale} />
+    <a class="link link-primary" href={item.Link}>{messages.Award[item.ID]}</a>
 </ListItem>

@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import type { Publication } from "@/types/cv";
 import { Icon } from "@/components/ui/icon";
 import LinkedAuthorText from "@/components/ui/LinkedAuthorText.astro";
+import SocialIconItem from "@/components/ui/SocialIconItem.astro";
 import { ListItem } from "@/components/ui/list";
 import { locales, getMessages, getTranslations } from "../../i18n";
 import {
@@ -28,7 +29,9 @@ const messages = getMessages(locale);
 
       {item.conference != null &&(
         <dt class={KEY_CLASS}>{messages.common.conference}</dt>
-        <dd>{item.conference}</dd>)
+        <dd>
+          <a href={item.url} class="link link-primary">{item.conference}</a>
+        </dd>)
       }
 
       {item.accepted_num != null && (
@@ -41,9 +44,13 @@ const messages = getMessages(locale);
         <dd>
           <div>
           {item.links.map(link =>
-            <a href={link.href} class="font-medium text-fg-brand underline hover:no-underline flex">
-              <Icon name={link.icon_id} class="mr-1"/> {link.name}
-            </a>
+            <div class="flex">
+                <SocialIconItem item={link} class="translate-y-1"/>
+                <a href={link.href} class="link link-primary flex">
+                  {link.name}
+                </a>
+            </div>
+
           )}
           </div>
         </dd>

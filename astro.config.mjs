@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-
 import { template } from "./src/settings";
 import sitemap from "@astrojs/sitemap";
 

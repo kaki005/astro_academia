@@ -10,12 +10,15 @@ const SAKURAI = PERSON_DIC[EPersonId.Sakurai];
 <p class="break-words">
     私は大阪大学の博士後期課程１年目の学生であり,
     産業科学研究所（SANKEN）にて特任研究員を務めています.<br />
-    現在は同研究所にて，<a href={SAKURAI.Homepage}>{SAKURAI.JapanName}教授</a
-    >および<a href={MATSUBARA.Homepage}>{MATSUBARA.JapanName}教授</a
+    現在は同研究所にて，<a class="link link-primary" href={SAKURAI.Homepage}
+        >{SAKURAI.JapanName}教授</a
+    >および<a class="link link-primary" href={MATSUBARA.Homepage}
+        >{MATSUBARA.JapanName}教授</a
     >にご指導を受けています．
 </p>
 <p class="break-words">
     研究テーマは主に，ベイズによるイベントテンソル分解 <a
+        class="link link-primary"
         href=`#publication-${EPublicationId.HeteroComp}`
         >[{EPublicationId.HeteroComp}]</a
     >に取り組んでいます．
@@ -27,7 +30,9 @@ const SAKURAI = PERSON_DIC[EPersonId.Sakurai];
 <div class="flex">
     <Icon name="download" class="mr-1" />
     <p>
-        CVファイルは <a href="https://kaki005.github.io/CV/cv_ja.pdf">ここ</a
+        履歴書は <a
+            class="link link-primary"
+            href="https://kaki005.github.io/CV/cv_ja.pdf">こちら</a
         >でダウンロードできます.
     </p>
 </div>

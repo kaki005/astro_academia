@@ -55,6 +55,8 @@ export class Publication {
     public authors: Person[],
     public links: LinkedIcon[],
     public isEnglish: boolean,
+    public url?: string,
+    public conferenceIcon?: ImageMetadata,
     public thumnail?: ImageMetadata,
     public abstract?: string,
     public conference?: string,

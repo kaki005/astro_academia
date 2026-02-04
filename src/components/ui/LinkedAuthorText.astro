@@ -11,9 +11,11 @@ const NAME = isEnglish ? person.EnglishName : person.JapanName;
 
 {
     person.IsMe ? (
-        <text class="font-medium underline">{NAME}</text>
+        <text class="font-bold underline">{NAME}</text>
     ) : (
-        <text>{NAME}</text>
+        <a href={person.Homepage} class="link link-neutral">
+            <text>{NAME}</text>
+        </a>
     )
 }
 {isAppendComma && <text>, </text>}

@@ -4,6 +4,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@plugin "daisyui";
 @plugin "node_modules/flowbite/plugin";
 @source "../../node_modules/flowbie";
 
@@ -75,11 +76,11 @@
     }
 }
 
-a:not(.no-link-style) {
+/* a:not(.no-link-style) {
     /*no-link-styleを除外*/
-    @apply text-blue-600 underline underline-offset-2;
-}
-
+/* @apply text-blue-600 underline underline-offset-2;
+} */
+/*
 a:hover {
     @apply text-blue-800;
-}
+} */
