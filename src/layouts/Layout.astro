@@ -5,7 +5,6 @@ import DarkLightController from "../components/ui/DarkLightController.astro";
 import Navbar from "../components/ui/Navbar.astro";
 import BetterIcon from "../components/ui/BetterIcon.astro";
 import { Header, HeaderActions, HeaderContent } from "@/components/ui/header";
-import { Logo, LogoImage, LogoText } from "@/components/ui/logo";
 import SwitichLang from "@/components/ui/SwitichLang.astro";
 import Head from "../components/Head.astro";
 import { template } from "../settings";
@@ -28,40 +27,38 @@ const MY_NAME = getName(EPersonId.Me, locale);
 		<Head locale={locale} />
 	</head>
 	<body>
-		<Header class="bg-base-200">
-			<HeaderContent>
-				<div>
-					{
-						template.menu_left && <DarkLightController />
-						/* <ThemeSelector transition:persist /> */
-					}
-					<label
-						for="my-drawer"
-						class="btn btn-square btn-ghost lg:hidden"
-					>
-						<BetterIcon>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								class="size-6 stroke-current"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-								></path>
-							</svg>
-						</BetterIcon>
-					</label>
-				</div>
-				<HeaderActions class="ml-auto">
-					<SwitichLang locale={locale} />
-					<DarkLightController />
-				</HeaderActions>
-			</HeaderContent>
-		</Header>
+		<div class="navbar bg-base-200 shadow-sm">
+			<div>
+				{
+					template.menu_left && <DarkLightController />
+					/* <ThemeSelector transition:persist /> */
+				}
+				<label
+					for="my-drawer"
+					class="btn btn-square btn-ghost lg:hidden"
+				>
+					<BetterIcon>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							class="size-6 stroke-current"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+							></path>
+						</svg>
+					</BetterIcon>
+				</label>
+			</div>
+			<div class="ml-auto">
+				<SwitichLang locale={locale} class="mr-1" />
+				<DarkLightController />
+			</div>
+		</div>
 		<div
 			class={`bg-base-100 drawer lg:drawer-open ${template.menu_left ? "drawer-end" : ""}`}
 		>

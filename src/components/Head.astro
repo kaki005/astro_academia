@@ -76,9 +76,6 @@ const imageUrl = new URL(ProfilePictures.src, Astro.url).pathname;
     themeChange(false); // false = don't persist to localStorage
   });
 </script>
-<script>
-  import "flowbite";
-</script>
 <script is:inline>
   const decodeLinks = () => {
     document.querySelectorAll("[data-encoded]").forEach((item) => {

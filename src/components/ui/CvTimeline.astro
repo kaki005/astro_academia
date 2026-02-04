@@ -1,6 +1,5 @@
 ---
 import type { Experience, Education } from "@/types/cv";
-import { Icon } from "@/components/ui/icon";
 import type { AstroComponentFactory } from "astro";
 import TimeDisplay from "@/components/ui/TimeDisplay.astro";
 interface Props {
@@ -12,9 +11,7 @@ const { elements, locale, ChildItem } = Astro.props;
 function formatDate(date: Date, lang: string) {
 	return date.toLocaleDateString(lang === "ja" ? "ja-JP" : "en-US", {
 		year: "numeric",
-		// month: lang === "ja" ? "long" : "short",
 		month: "long",
-		// day: "numeric",
 	});
 }
 const ORIGINAL_LIST = elements;
@@ -31,7 +28,7 @@ const TIME_CLASS =
 				<li class="relative mb-0 flex-1">
 					<div class="flex items-center">
 						<div class="z-10 flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full ring-buffer ring-4 shrink-0">
-							<Icon name="calendar" />
+							<i class="fa-regular fa-calendar" />
 						</div>
 						<div class="flex flex-1 bg-blue-200 h-px" />
 					</div>
@@ -58,7 +55,7 @@ const TIME_CLASS =
 			REVERSED_LIST.map((element, index) => (
 				<li class="mb-4 ms-6">
 					<span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 translate-y-2 ring-4 ring-buffer bg-white">
-						<Icon name="calendar" />
+						<i class="fa-regular fa-calendar" />
 					</span>
 					<TimeDisplay time={element.start} locale={locale} />
 					<text class="text-2xl font-light relative top-0.5">–</text>

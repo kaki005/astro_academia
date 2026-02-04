@@ -1,5 +1,4 @@
 ---
-import "flowbite";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { Icon } from "@/components/ui/icon";
@@ -11,7 +10,6 @@ import EducaionItem from "../../components/ui/EducationItem.astro";
 import ExperienceItem from "../../components/ui/ExperienceItem.astro";
 import { locales, getMessages, getTranslations } from "../../i18n";
 import { _getStaticPaths, GetIntroduction } from "../../i18n";
-import { List, ListItem } from "@/components/ui/list";
 const { locale } = Astro.params;
 const messages = getMessages(locale);
 const Introduction = GetIntroduction(locale);
@@ -74,11 +72,11 @@ export const getStaticPaths = _getStaticPaths; // 必須
 					<i class="fa-regular fa-file-lines" />
 					{messages.common.publications}
 				</h1>
-				<List>
+				<ul class="list">
 					{publications.map((item) => (
 						<PublicationItem item={item} locale={locale} />
 					))}
-				</List>
+				</ul>
 			</section>
 		)
 	}
@@ -89,11 +87,11 @@ export const getStaticPaths = _getStaticPaths; // 必須
 					<i class="fa-solid fa-trophy" />
 					{messages.common.awards}
 				</h1>
-				<List>
+				<ul class="list">
 					{AWARDS.map((item) => (
 						<AwardItem item={item} locale={locale} />
 					))}
-				</List>
+				</ul>
 			</section>
 		)
 	}

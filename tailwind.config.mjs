@@ -3,7 +3,7 @@ export default {
 	darkMode: ["class"],
 	content: [
 		"./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
-		"./node_modules/flowbite/**/*.js"
+		// "./node_modules/flowbite/**/*.js"
 	],
 	theme: {
 		extend: {
@@ -56,7 +56,7 @@ export default {
 			}
 		}
 	},
-	plugins: [require("@tailwindcss/typography"), require("daisyui"), require("tailwindcss-animate"), require("flowbite/plugin")],
+	plugins: [require("@tailwindcss/typography"), require("daisyui"), require("tailwindcss-animate")],
 	daisyui: {
 		themes: [
 			"light",

@@ -1,16 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import type { Publication } from "@/types/cv";
-import { Icon } from "@/components/ui/icon";
 import LinkedAuthorText from "@/components/ui/LinkedAuthorText.astro";
 import SocialIconItem from "@/components/ui/SocialIconItem.astro";
-import { ListItem } from "@/components/ui/list";
 import { locales, getMessages, getTranslations } from "../../i18n";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 interface Props {
   item: Publication;
   locale: string;
@@ -20,7 +13,7 @@ const { item, locale } = Astro.props;
 const messages = getMessages(locale);
 ---
 
-<ListItem>
+<li class="list-row">
   <div id=`publication-${item.id}`>
     <h2 class="text-lg font-bold mb-2">[{item.id}] {item.title}</h2>
     <dl class="grid grid-cols-[auto,1fr] gap-x-2 gap-y-1">
@@ -57,12 +50,12 @@ const messages = getMessages(locale);
       )}
       <dt class={KEY_CLASS}>{messages.common.abstract}</dt>
       <dd>
-          <Collapsible class="relative w-full">
-            <CollapsibleTrigger class="w-16"><text class=`relative w-full`>{messages.common.detail}</text></CollapsibleTrigger>
-            <CollapsibleContent>
+          <div tabindex="0"  class="collapse collapse-arrow relative w-full">
+            <div class="w-32 collapse-title"><text class=`relative w-full`>{messages.common.detail}</text></div>
+            <div class="collapse-content text-sm">
               <p>{item.abstract}</p>
-            </CollapsibleContent>
-        </Collapsible>
+            </div>
+          </div>
       </dd>
 
       {item.thumnail != null && (
@@ -73,4 +66,4 @@ const messages = getMessages(locale);
 
 
   </div>
-</ListItem>
+</li>
