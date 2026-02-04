@@ -25,6 +25,6 @@
     "theme-change": "^2.5.0"
   },
   "devDependencies": {
-    "daisyui": "^4.12.24"
+    "daisyui": "^5.5.17"
   }
 }
