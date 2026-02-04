@@ -19,9 +19,9 @@ const TIME_CLASS =
 
 {
     time == null ? (
-        <time class={TIME_CLASS}>{messages.common.now}</time>
+        <time class=`${TIME_CLASS} ${className}`>{messages.common.now}</time>
     ) : (
-        <time class={TIME_CLASS} datetime={time.toISOString()}>
+        <time class=`${TIME_CLASS} ${className}` datetime={time.toISOString()}>
             {formatDate(time, locale)}
         </time>
     )

@@ -11,6 +11,6 @@ const messages = getMessages(locale);
 ---
 
 <li class="list-row flex items-center">
-    <TimeDisplay time={item.Day} locale={locale} />
+    <TimeDisplay time={item.Day} locale={locale} class="mr-1" />
     <a class="link link-primary" href={item.Link}>{messages.Award[item.ID]}</a>
 </li>

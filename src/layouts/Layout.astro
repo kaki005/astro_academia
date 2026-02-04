@@ -4,6 +4,7 @@ import ProfilePictures from "@/assets/profile_pictures.jpg";
 import DarkLightController from "../components/ui/DarkLightController.astro";
 import Navbar from "../components/ui/Navbar.astro";
 import BetterIcon from "../components/ui/BetterIcon.astro";
+import ThemeSelector from "../components/ui/ThemeSelector.astro";
 import { Header, HeaderActions, HeaderContent } from "@/components/ui/header";
 import SwitichLang from "@/components/ui/SwitichLang.astro";
 import Head from "../components/Head.astro";
@@ -29,10 +30,6 @@ const MY_NAME = getName(EPersonId.Me, locale);
 	<body>
 		<div class="navbar bg-base-200 shadow-sm">
 			<div>
-				{
-					template.menu_left && <DarkLightController />
-					/* <ThemeSelector transition:persist /> */
-				}
 				<label
 					for="my-drawer"
 					class="btn btn-square btn-ghost lg:hidden"
@@ -57,6 +54,7 @@ const MY_NAME = getName(EPersonId.Me, locale);
 			<div class="ml-auto">
 				<SwitichLang locale={locale} class="mr-1" />
 				<DarkLightController />
+				<!-- <ThemeSelector /> -->
 			</div>
 		</div>
 		<div

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	darkMode: ["class"],
+	darkMode: ["catppuccin-mocha"],
 	content: [
 		"./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
 		// "./node_modules/flowbite/**/*.js"
@@ -56,7 +56,10 @@ export default {
 			}
 		}
 	},
-	plugins: [require("@tailwindcss/typography"), require("daisyui"), require("tailwindcss-animate")],
+	plugins: [
+		require("daisyui"),
+		require("tailwindcss-animate")
+	],
 	daisyui: {
 		themes: [
 			"light",
@@ -91,6 +94,50 @@ export default {
 			"dim",
 			"nord",
 			"sunset",
+			{
+				"catppuccin-mocha": {
+					primary: "#89b4fa",
+					secondary: "#f5c2e7",
+					accent: "#a6e3a1",
+					neutral: "#1e1e2e",
+
+					"base-100": "#1e1e2e",
+					"base-200": "#181825",
+					"base-300": "#11111b",
+
+					info: "#74c7ec",
+					success: "#a6e3a1",
+					warning: "#f9e2af",
+					error: "#f38ba8",
+
+					"--rounded-box": "1rem",
+					"--rounded-btn": "0.5rem",
+					"--border-btn": "1px",
+					"--tab-border": "1px",
+				},
+			},
+			{
+				"catppuccin-latte": {
+					primary: "#1e66f5",
+					secondary: "#ea76cb",
+					accent: "#40a02b",
+					neutral: "#4c4f69",
+
+					"base-100": "#eff1f5",
+					"base-200": "#e6e9ef",
+					"base-300": "#dce0e8",
+
+					info: "#209fb5",
+					success: "#40a02b",
+					warning: "#df8e1d",
+					error: "#d20f39",
+
+					"--rounded-box": "1rem",
+					"--rounded-btn": "0.5rem",
+					"--border-btn": "1px",
+					"--tab-border": "1px",
+				},
+			},
 		],
 	},
 	// darkMode: ['selector', '[data-theme="synthwave"]']
