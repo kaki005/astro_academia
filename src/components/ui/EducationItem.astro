@@ -13,21 +13,22 @@ const messages = getMessages(locale);
 <h3 class="text-lg font-semibold text-heading my-2">
     {messages.Degree[item.degree].name}
 </h3>
-<TimeDisplay time={item.start} locale={locale} />
-<text class="text-2xl font-light relative top-1">–</text>
-<TimeDisplay time={item.end} locale={locale} />
 <ol class="text-body mb-4">
     <li>
         {messages.Degree[item.degree].description}
     </li>
     <li>
-        <i class="fa-solid fa-building-columns"></i>{
-            messages.Facurity[item.facurity]
-        }
+        <i class="fa-solid fa-building-columns"></i>
+        {messages.Facurity[item.facurity]}
     </li>
     <li>
-        <i class="fa-solid fa-location-dot"></i>{
-            messages.Location[item.location]
-        }
+        <i class="fa-solid fa-location-dot"></i>
+        {messages.Location[item.location]}
+    </li>
+    <li>
+        <i class="fa-regular fa-calendar"></i>
+        <TimeDisplay time={item.start} locale={locale} />
+        <text>–</text>
+        <TimeDisplay time={item.end} locale={locale} />
     </li>
 </ol>

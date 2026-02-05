@@ -11,6 +11,10 @@ const messages = getMessages(locale);
 ---
 
 <li class="list-row flex items-center">
-    <TimeDisplay time={item.Day} locale={locale} class="mr-1" />
+    <span class="border border-default mr-1">
+        <i class="fa-regular fa-calendar"></i>
+        <TimeDisplay time={item.Day} locale={locale} />
+    </span>
+
     <a class="link link-primary" href={item.Link}>{messages.Award[item.ID]}</a>
 </li>
