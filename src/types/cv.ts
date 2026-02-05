@@ -1,5 +1,6 @@
 import type { LinkedIcon } from "./icon";
 import type { Person } from "./person";
+import type { Badge } from "./blog";
 import type { ImageMetadata } from "astro";
 export enum ELocationId {
   Osaka = "Osaka",
@@ -55,6 +56,7 @@ export class Publication {
     public authors: Person[],
     public links: LinkedIcon[],
     public isEnglish: boolean,
+    public keywords: Badge[],
     public url?: string,
     public conferenceIcon?: ImageMetadata,
     public thumnail?: ImageMetadata,

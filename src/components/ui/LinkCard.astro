@@ -42,7 +42,10 @@ const ogDescription = websiteData?.ogDescription || "";
             {ogTitle}
         </h5>
         <div class="flex">
+            <i class="fa-regular fa-calendar"></i>
             <TimeDisplay time={blog.Date} locale={locale} />
+        </div>
+        <div class="flex">
             {
                 blog.Badges.map((badge) => (
                     <div class=`badge ${badge.ClassName} m-1`>
@@ -51,7 +54,6 @@ const ogDescription = websiteData?.ogDescription || "";
                 ))
             }
         </div>
-
         <p class="mb-6 text-body">
             {ogDescription}
         </p>

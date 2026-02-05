@@ -1,6 +1,7 @@
 import { Experience, Education, ELocationId, FacurityId, ERoleId, EDegree, Publication, EPublicationId, EAwardId, Award } from "@/types/cv";
 import { EPersonId } from "@/types/person";
 import { PERSON_DIC } from "../data/person";
+import { Badge } from "@/types/blog";
 import { LinkedIcon } from "@/types/icon";
 import HeteroCompThumnail from "@/assets/heterocomp.png";
 import WebconfThumnail from "@/assets/www_logo.jpg";
@@ -23,6 +24,7 @@ export const publications: Publication[] = [
 		[PERSON_DIC[EPersonId.Me], PERSON_DIC[EPersonId.Matsubara], PERSON_DIC[EPersonId.Ren], PERSON_DIC[EPersonId.Sakurai]],
 		[new LinkedIcon("code&datasets", "https://github.com/kaki005/HeteroComp", "fa-brands fa-github", false)],
 		true,
+		[new Badge("bayesian", "badge-warning"), new Badge("anomaly detection", "badge-accent"), new Badge("gaussian process", "badge-info")],
 		"https://www2026.thewebconf.org/",
 		WebconfThumnail,
 		HeteroCompThumnail,

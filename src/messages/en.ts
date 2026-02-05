@@ -22,6 +22,7 @@ export default {
         detail: "detail",
         now: "On",
         awards: "Awards",
+        keywords: "Keywords",
     },
     Location: {
         "Osaka": "Osaka, Japan",

@@ -8,7 +8,7 @@ interface Props {
   item: Publication;
   locale: string;
 }
-const KEY_CLASS = "font-medium";
+const KEY_CLASS = "";
 const { item, locale } = Astro.props;
 const messages = getMessages(locale);
 ---
@@ -43,11 +43,20 @@ const messages = getMessages(locale);
                   {link.name}
                 </a>
             </div>
-
           )}
           </div>
         </dd>
       )}
+
+      <dt class={KEY_CLASS}>{messages.common.keywords}</dt>
+      <dd>
+        {item.keywords.map(badge =>
+                  <div class=`badge ${badge.ClassName} m-1`>
+                        {badge.Name}
+                    </div>)
+        }
+      </dd>
+
       <dt class={KEY_CLASS}>{messages.common.abstract}</dt>
       <dd>
           <div tabindex="0"  class="collapse collapse-arrow relative w-full">

@@ -20,6 +20,7 @@ export default {
         detail: "詳細",
         now: "現在",
         awards: "賞状",
+        keywords: "キーワード",
     },
     Location: {
         "Osaka": "日本，大阪府",
