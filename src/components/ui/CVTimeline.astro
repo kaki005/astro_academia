@@ -1,0 +1,48 @@
+---
+import type { Experience, Education } from "../../types/cv";
+import type { AstroComponentFactory } from "astro";
+import TimeDisplay from "./TimeDisplay.astro";
+interface Props {
+    elements: (Experience | Education)[];
+    locale: string;
+    ChildItem: AstroComponentFactory;
+    color_category?: string;
+}
+const { elements, locale, ChildItem, color_category = "primary" } = Astro.props;
+---
+
+<ul
+    class="timeline max-md:timeline-compact timeline-vertical md:timeline-horizontal"
+>
+    {
+        elements.map((element, index) => (
+            <li class="grid-rows-[min-content_auto_1fr] relative mb-0 flex-1">
+                <hr class=`bg-${color_category}` />
+                <div class="timeline-middle">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class={
+                            element.end == null
+                                ? "h-7 w-7"
+                                : `text-${color_category} h-7 w-7`
+                        }
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+                </div>
+                <div class=`timeline-end timeline-box shadow-lg border rounded-base border-${color_category}`>
+                    {ChildItem != null && (
+                        <ChildItem item={element} locale={locale} />
+                    )}
+                </div>
+                <hr class={element.end == null ? "" : `bg-${color_category}`} />
+            </li>
+        ))
+    }
+</ul>

@@ -44,6 +44,7 @@ export const getStaticPaths = _getStaticPaths; // 必須
 					elements={education}
 					locale={locale}
 					ChildItem={EducaionItem}
+					color_category="info"
 				/>
 			</section>
 		)
@@ -56,11 +57,11 @@ export const getStaticPaths = _getStaticPaths; // 必須
 					<i class="fa-solid fa-briefcase" />
 					{messages.common.experiences}
 				</h1>
-				<CvTimeline
-					elements={experiences}
-					locale={locale}
-					ChildItem={ExperienceItem}
-				/>
+				<ul class="list">
+					{experiences.map((item) => (
+						<ExperienceItem item={item} locale={locale} />
+					))}
+				</ul>
 			</section>
 		)
 	}

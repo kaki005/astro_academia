@@ -2,27 +2,27 @@
 import type { Experience, Education } from "@/types/cv";
 import type { AstroComponentFactory } from "astro";
 import TimeDisplay from "@/components/ui/TimeDisplay.astro";
+import HorizontalTimeline from "@/components/ui/HorizontalTimeline.astro";
 interface Props {
 	elements: (Experience | Education)[];
 	locale?: string;
 	ChildItem?: AstroComponentFactory;
 }
 const { elements, locale, ChildItem } = Astro.props;
-function formatDate(date: Date, lang: string) {
-	return date.toLocaleDateString(lang === "ja" ? "ja-JP" : "en-US", {
-		year: "numeric",
-		month: "long",
-	});
-}
 const ORIGINAL_LIST = elements;
 const REVERSED_LIST = [...ORIGINAL_LIST].reverse();
-const TIME_CLASS =
-	"bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded";
 ---
 
 <!-- sm以上 -->
 <div class="hidden sm:block">
-	<ol class="flex">
+	<HorizontalTimeline
+		locale={locale}
+		elements={elements}
+		ChildItem={ChildItem}
+		color_category="info"
+	/>
+	<!--↓ ver2 -->
+	<!-- <ol class="flex">
 		{
 			ORIGINAL_LIST.map((element, index) => (
 				<li class="relative mb-0 flex-1">
@@ -45,11 +45,11 @@ const TIME_CLASS =
 				</li>
 			))
 		}
-	</ol>
+	</ol> -->
 </div>
 
 <!-- sm未満 -->
-<div class="block sm:hidden">
+<!-- <div class="block sm:hidden">
 	<ol class="relative border-s border-info">
 		{
 			REVERSED_LIST.map((element, index) => (
@@ -67,4 +67,4 @@ const TIME_CLASS =
 			))
 		}
 	</ol>
-</div>
+</div> -->

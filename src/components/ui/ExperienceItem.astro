@@ -5,14 +5,20 @@ interface Props {
     locale?: string;
 }
 import { locales, getMessages, getTranslations } from "../../i18n";
-import { ListItem } from "@/components/ui/list";
+import TimeDisplay from "@/components/ui/TimeDisplay.astro";
 const { item, locale } = Astro.props;
 const messages = getMessages(locale);
 ---
 
-<h3 class="text-lg font-semibold text-heading my-2">
+<h2 class="text-2xl font-semibold text-heading my-2">
     {messages.Facurity[item.facurity]}
-</h3>
+</h2>
+<div class="flex h-6 items-center">
+    <TimeDisplay time={item.start} locale={locale} />
+    <text class="text-2xl m-1">–</text>
+    <TimeDisplay time={item.end} locale={locale} />
+</div>
+
 <ol class="text-body mb-4">
     <li>
         {messages.Role[item.role]}

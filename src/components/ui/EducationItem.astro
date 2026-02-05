@@ -5,7 +5,7 @@ interface Props {
     locale?: string;
 }
 import { locales, getMessages, getTranslations } from "../../i18n";
-import { ListItem } from "@/components/ui/list";
+import TimeDisplay from "@/components/ui/TimeDisplay.astro";
 const { item, locale } = Astro.props;
 const messages = getMessages(locale);
 ---
@@ -13,6 +13,9 @@ const messages = getMessages(locale);
 <h3 class="text-lg font-semibold text-heading my-2">
     {messages.Degree[item.degree].name}
 </h3>
+<TimeDisplay time={item.start} locale={locale} />
+<text class="text-2xl font-light relative top-1">–</text>
+<TimeDisplay time={item.end} locale={locale} />
 <ol class="text-body mb-4">
     <li>
         {messages.Degree[item.degree].description}
