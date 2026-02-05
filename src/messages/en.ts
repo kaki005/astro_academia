@@ -11,7 +11,7 @@ export default {
         experiences: "Experiences",
         publications: "Publications",
         home: "Home",
-        cv: "CV",
+        theme: "Theme",
         blog: "Blog",
         conference: "Conference",
         authors: "Authors",

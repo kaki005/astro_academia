@@ -16,7 +16,7 @@ const messages = getMessages(locale);
 <li class="list-row">
   <div id=`publication-${item.id}`>
     <h2 class="text-lg font-bold mb-2">[{item.id}] {item.title}</h2>
-    <dl class="grid grid-cols-[auto,1fr] gap-x-2 gap-y-1">
+    <dl class="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1">
       <dt class={KEY_CLASS}>{messages.common.authors}</dt>
       <dd>{item.authors.map((author, i)=> <LinkedAuthorText isEnglish={item.isEnglish} person={author} isAppendComma={i < item.authors.length-1}/>)}</dd>
 

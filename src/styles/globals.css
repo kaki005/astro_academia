@@ -1,11 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "tailwindcss";
-@plugin "daisyui";
 
+@plugin "daisyui" {
+    themes: all;
+}
 
+@plugin "tailwindcss-animate";
 
+/* 2. ダークモードの設定 (darkMode: ["dark"] に相当) */
+/* クラスベース(.dark)で切り替えるための設定です */
+@variant dark (&:where(.dark, .dark *));
+@plugin "./catppuccinTheme.latte.ts";
+@plugin "./catppuccinTheme.frappe.ts";
+@plugin "./catppuccinTheme.macchiato.ts";
+@plugin "./catppuccinTheme.mocha.ts";
+
+/* 3. テーマの拡張 (theme: { extend: ... }) */
+/* ここで定義した変数は自動的にユーティリティクラス(bg-background等)になります */
+@theme {
+    /* 角丸 (borderRadius) */
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    /* カラーパレット (colors) */
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
+
+    --color-card: hsl(var(--card));
+    --color-card-foreground: hsl(var(--card-foreground));
+
+    --color-popover: hsl(var(--popover));
+    --color-popover-foreground: hsl(var(--popover-foreground));
+
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
+
+    --color-secondary: hsl(var(--secondary));
+    --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
+
+    --color-accent: hsl(var(--accent));
+    --color-accent-foreground: hsl(var(--accent-foreground));
+
+    --color-destructive: hsl(var(--destructive));
+    --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+    --color-border: hsl(var(--border));
+    --color-input: hsl(var(--input));
+    --color-ring: hsl(var(--ring));
+
+    --color-chart-1: hsl(var(--chart-1));
+    --color-chart-2: hsl(var(--chart-2));
+    --color-chart-3: hsl(var(--chart-3));
+    --color-chart-4: hsl(var(--chart-4));
+    --color-chart-5: hsl(var(--chart-5));
+}
+
+/* 4. CSS変数の定義 (Layer Base) */
+/* shadcn/ui等で使用している変数の定義はそのまま残します */
 @layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        /* ... 他の変数定義 (card, popover, primaryなど) はここに記述してください ... */
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        /* ... 他のダークモード用変数 ... */
+    }
+
     * {
         @apply border-border;
     }
@@ -14,3 +84,9 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* daisyUIの設定について */
+/* v4/daisyUI v5では、プラグインを読み込むだけでデフォルトでテーマが利用可能です。
+   特定のテーマのみを許可したい場合や順序を変えたい場合の設定方法は
+   daisyUI v5の仕様によりますが、基本的には全テーマが利用可能な状態か、
+   HTMLタグのdata-theme属性で制御します。 */

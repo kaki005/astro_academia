@@ -27,7 +27,7 @@ const MY_NAME = getName(EPersonId.Me, locale);
 
 		<Head locale={locale} />
 	</head>
-	<body>
+	<body class="text-base-content">
 		<div class="navbar bg-base-200 shadow-sm">
 			<div>
 				<label
@@ -51,17 +51,16 @@ const MY_NAME = getName(EPersonId.Me, locale);
 					</BetterIcon>
 				</label>
 			</div>
-			<div class="ml-auto">
+			<div class="ml-auto flex items-center">
 				<SwitichLang locale={locale} class="mr-1" />
-				<DarkLightController />
-				<!-- <ThemeSelector /> -->
+				<!-- <DarkLightController /> -->
+				<ThemeSelector locale={locale} />
 			</div>
 		</div>
 		<div
 			class={`bg-base-100 drawer lg:drawer-open ${template.menu_left ? "drawer-end" : ""}`}
 		>
 			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
-			<!-- Drawer content -->
 			<div class="drawer-content bg-base-100">
 				<main
 					class="p-8 pt-10 lg:pt-16 lg:max-w-5xl max-w-full mx-auto min-h-screen flex flex-col justify-between"

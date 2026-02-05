@@ -54,17 +54,17 @@ const imageUrl = new URL(ProfilePictures.src, Astro.url).pathname;
 <script is:inline>
   // Get stored theme or default to light
   const getStoredTheme = () => {
-    return localStorage.getItem("theme") || "light";
+    return localStorage.getItem("theme") || template.lightTheme;
   };
 
   // Apply theme immediately to prevent flash
-  const theme = getStoredTheme();
-  document.documentElement.setAttribute("data-theme", theme);
+  const THEME = getStoredTheme();
+  document.documentElement.setAttribute("data-theme", THEME);
 
   // Re-apply theme after navigation
   document.addEventListener("astro:after-swap", () => {
-    const currentTheme = getStoredTheme();
-    document.documentElement.setAttribute("data-theme", currentTheme);
+    const CURRENT_THEME = getStoredTheme();
+    document.documentElement.setAttribute("data-theme", CURRENT_THEME);
   });
 </script>
 <script>

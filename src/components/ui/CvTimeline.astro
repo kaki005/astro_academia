@@ -27,10 +27,10 @@ const TIME_CLASS =
 			ORIGINAL_LIST.map((element, index) => (
 				<li class="relative mb-0 flex-1">
 					<div class="flex items-center">
-						<div class="z-10 flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full ring-buffer ring-4 shrink-0">
+						<div class="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-buffer ring-4 shrink-0 ring-info">
 							<i class="fa-regular fa-calendar" />
 						</div>
-						<div class="flex flex-1 bg-blue-200 h-px" />
+						<div class="flex flex-1 bg-info h-px" />
 					</div>
 					<div class="mt-3 pe-8">
 						<TimeDisplay time={element.start} locale={locale} />
@@ -50,11 +50,11 @@ const TIME_CLASS =
 
 <!-- sm未満 -->
 <div class="block sm:hidden">
-	<ol class="relative border-s border-blue-200">
+	<ol class="relative border-s border-info">
 		{
 			REVERSED_LIST.map((element, index) => (
 				<li class="mb-4 ms-6">
-					<span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 translate-y-2 ring-4 ring-buffer bg-white">
+					<span class="absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 translate-y-2 ring-4 ring-buffer ring-info">
 						<i class="fa-regular fa-calendar" />
 					</span>
 					<TimeDisplay time={element.start} locale={locale} />

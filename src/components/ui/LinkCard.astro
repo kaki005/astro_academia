@@ -1,17 +1,13 @@
 ---
-// インポート
 import ogs from "open-graph-scraper";
 import { Badge } from "@/components/ui/badge";
 import { Blog } from "../../types/blog";
 import Noimage from "../../assets/noimage_placeholder.png";
 import TimeDisplay from "./TimeDisplay.astro";
-// propsの指定
 interface Props {
     blog: Blog;
     locale?: string;
 }
-
-// propsを分割代入
 const { blog, locale } = Astro.props;
 
 // OGSで情報を取得
@@ -32,7 +28,6 @@ const ogImage = websiteData?.ogImage?.[0]?.url || Noimage.src;
 const ogTitle = websiteData?.ogTitle || "タイトルの取得に失敗しました";
 const ogDescription = websiteData?.ogDescription || "";
 ---
-
 <div
     class="card bg-base-100 w-96 shadow-lg border rounded-base"
 >

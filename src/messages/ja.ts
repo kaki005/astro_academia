@@ -9,7 +9,7 @@ export default {
         experiences: "職歴",
         publications: "研究業績",
         home: "ホーム",
-        cv: "CV",
+        theme: "テーマ",
         blog: "ブログ",
         conference: "会議",
         authors: "著者",

@@ -4,6 +4,7 @@ import { _getStaticPaths } from "../../i18n";
 import { locales, getMessages, getTranslations } from "../../i18n";
 import { BLOGS } from "../../data/blog";
 import LinkCard from "../../components/ui/LinkCard.astro";
+import HoverEffectBox from "../../components/ui/HoverEffectBox.astro";
 const { locale } = Astro.params;
 export const getStaticPaths = _getStaticPaths; // 必須
 const messages = getMessages(locale);
@@ -11,6 +12,12 @@ const messages = getMessages(locale);
 
 <Layout locale={locale}>
     <div class="flex flex-col sm:flex-row gap-4">
-        {BLOGS.map((blog) => <LinkCard blog={blog} locale={locale} />)}
+        {
+            BLOGS.map((blog) => (
+                <HoverEffectBox>
+                    <LinkCard blog={blog} locale={locale} />
+                </HoverEffectBox>
+            ))
+        }
     </div>
 </Layout>

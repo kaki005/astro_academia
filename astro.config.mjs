@@ -2,6 +2,8 @@
 import { defineConfig } from "astro/config";
 import { template } from "./src/settings";
 import sitemap from "@astrojs/sitemap";
+import tailwind from '@tailwindcss/vite'; // 新しいプラグイン
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,4 +14,7 @@ export default defineConfig({
         defaultLocale: 'ja',
         locales: ['ja', 'en'],
     },
+    vite: {
+        plugins: [tailwind()],
+    }
 });

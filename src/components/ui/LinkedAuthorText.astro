@@ -13,7 +13,7 @@ const NAME = isEnglish ? person.EnglishName : person.JapanName;
     person.IsMe ? (
         <text class="font-bold underline">{NAME}</text>
     ) : (
-        <a href={person.Homepage} class="link link-primary">
+        <a href={person.Homepage} class="link link-default">
             <text>{NAME}</text>
         </a>
     )
