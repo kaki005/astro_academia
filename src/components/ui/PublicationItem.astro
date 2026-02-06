@@ -35,9 +35,9 @@ const messages = getMessages(locale);
       {item.links.length > 0 && (
         <dt class={KEY_CLASS}>{messages.common.links}</dt>
         <dd>
-          <div>
+          <div class="flex">
           {item.links.map(link =>
-            <div class="flex">
+            <div class="flex mr-1">
                 <SocialIconItem item={link} class="translate-y-1"/>
                 <a href={link.href} class="link link-primary flex">
                   {link.name}
