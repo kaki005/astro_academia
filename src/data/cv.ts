@@ -24,7 +24,7 @@ export const publications: Publication[] = [
 		[PERSON_DIC[EPersonId.Me], PERSON_DIC[EPersonId.Matsubara], PERSON_DIC[EPersonId.Ren], PERSON_DIC[EPersonId.Sakurai]],
 		[
 			new LinkedIcon("code&datasets", "https://github.com/kaki005/HeteroComp", "fa-brands fa-github", false),
-			new LinkedIcon("paper", "https://arxiv.org/abs/2602.04917", "ai ai-arxiv", false)
+			new LinkedIcon("paper", "https://arxiv.org/abs/2602.04917", "ai ai-arxiv ai-border", false)
 		],
 		true,
 		[new Badge("bayesian", "badge-warning"), new Badge("anomaly detection", "badge-accent"), new Badge("gaussian process", "badge-info")],
