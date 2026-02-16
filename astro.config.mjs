@@ -7,12 +7,22 @@ import tailwind from '@tailwindcss/vite'; // 新しいプラグイン
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [sitemap()],
+    integrations: [sitemap(
+        {
+            i18n: {
+                defaultLocale: 'ja',
+                locales: {
+                    ja: 'ja',
+                    en: 'en',
+                },
+            },
+        }
+    )],
     site: template.website_url,
     base: template.base,
     i18n: {
         defaultLocale: 'ja',
-        locales: ['ja', 'en'],
+        locales: ["en", "ja"],
     },
     vite: {
         plugins: [tailwind()],

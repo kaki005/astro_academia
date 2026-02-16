@@ -15,9 +15,9 @@ type Props = {
 };
 const { locale = "en" } = Astro.props;
 const messages = getMessages(locale);
-const isBlogPopulated = await getCollection("blog").then(
-	(collection) => collection.length > 0,
-);
+// const isBlogPopulated = await getCollection("blog").then(
+// 	(collection) => collection.length > 0,
+// );
 const MY_NAME = getName(EPersonId.Me, locale);
 const ICON_CLASS = "text-2xl no-link-style";
 ---
