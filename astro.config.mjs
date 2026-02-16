@@ -20,11 +20,6 @@ export default defineConfig({
     )],
     site: template.website_url,
     base: template.base,
-    i18n: {
-        defaultLocale: template.default_lang,
-        locales: ["en", "ja"],
-        filter: (page) => page.startsWith(`/${template.default_lang}/`),
-    },
     vite: {
         plugins: [tailwind()],
     }
