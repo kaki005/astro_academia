@@ -10,7 +10,7 @@ export default defineConfig({
     integrations: [sitemap(
         {
             i18n: {
-                defaultLocale: 'ja',
+                defaultLocale: template.default_lang,
                 locales: {
                     ja: 'ja',
                     en: 'en',
@@ -21,8 +21,9 @@ export default defineConfig({
     site: template.website_url,
     base: template.base,
     i18n: {
-        defaultLocale: 'ja',
+        defaultLocale: template.default_lang,
         locales: ["en", "ja"],
+        filter: (page) => page.startsWith(`/${template.default_lang}/`),
     },
     vite: {
         plugins: [tailwind()],
