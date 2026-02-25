@@ -27,7 +27,7 @@ export const publications: Publication[] = [
 			new LinkedIcon("paper", "https://arxiv.org/abs/2602.04917", "ai ai-arxiv ai-border", false)
 		],
 		true,
-		[new Badge("bayesian", "badge-warning"), new Badge("anomaly detection", "badge-accent"), new Badge("gaussian process", "badge-info")],
+		[new Badge("Bayesian", "badge-warning"), new Badge("Anomaly detection", "badge-accent"), new Badge("Gaussian process", "badge-info")],
 		"https://www2026.thewebconf.org/",
 		WebconfThumnail,
 		HeteroCompThumnail,
