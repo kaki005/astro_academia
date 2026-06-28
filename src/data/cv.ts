@@ -47,5 +47,6 @@ export const publications: Publication[] = [
 ];
 
 export const AWARDS: Award[] = [
-	new Award(EAwardId.Kougakusyou, "https://www.sanken.osaka-u.ac.jp/news/topics_20240319.html", new Date(2024, 2))
+	new Award(EAwardId.Kougakusyou, "https://www.sanken.osaka-u.ac.jp/news/topics_20240319.html", new Date(2024, 2)),
+	new Award(EAwardId.DeimPaper, "https://pub.confit.atlas.jp/ja/event/deim2026", new Date(2026, 6))
 ]

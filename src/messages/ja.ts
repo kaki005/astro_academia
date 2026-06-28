@@ -56,5 +56,6 @@ export default {
     },
     Award: {
         Kougakusyou: "令和五年度 大阪大学工学賞",
+        DeimPaper: "DEIM 2026 優秀論文賞",
     },
 }

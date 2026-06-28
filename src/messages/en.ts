@@ -58,5 +58,6 @@ export default {
     },
     Award: {
         Kougakusyou: "Osaka University Engineering Award",
+        DeimPaper: "DEIM 2026 Best Paper Award Runner-up",
     },
 }

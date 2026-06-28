@@ -10,7 +10,7 @@ import { LinkedIcon } from "@/types/icon"
 
 export const SOCIALS: LinkedIcon[] = [
     new LinkedIcon("E-mail", "bWFpbHRvOnNrYWtpbzg4QHNhbmtlbi5vc2FrYS11LmFjLmpw", "fa-regular fa-envelope", true, "#FF0000"),
-    new LinkedIcon("LinkedIn", "https://www.linkedin.com/feed/", "fa-brands fa-linkedin", false, "#0A66C2"),
+    new LinkedIcon("LinkedIn", "https://www.linkedin.com/in/soshi-kakio-659514297", "fa-brands fa-linkedin", false, "#0A66C2"),
     new LinkedIcon("GitHub", "https://github.com/kaki005", "fa-brands fa-github", false,),
     new LinkedIcon("ORCID", "https://orcid.org/0009-0006-6200-3858", "fa-brands fa-orcid", false, "#A6CE39"),
     new LinkedIcon("Arxiv", "https://arxiv.org/search/cs?searchtype=author&query=Kakio,S", "ai ai-arxiv mr-1", false),
