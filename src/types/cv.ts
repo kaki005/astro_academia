@@ -70,8 +70,8 @@ export class Publication {
 }
 
 export enum EAwardId {
-  Kougakusyou = "Kougakusyou"
-  DeimPaper = "DeimPaper"
+  Kougakusyou = "Kougakusyou",
+  DeimPaper = "DeimPaper",
 }
 
 
