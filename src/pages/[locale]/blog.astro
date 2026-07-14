@@ -1,12 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { _getStaticPaths } from "../../i18n";
-import { locales, getMessages, getTranslations } from "../../i18n";
+import { getMessages } from "../../i18n";
 import { BLOGS } from "../../data/blog";
 import LinkCard from "../../components/ui/LinkCard.astro";
 import HoverEffectBox from "../../components/ui/HoverEffectBox.astro";
 const { locale } = Astro.params;
 export const getStaticPaths = _getStaticPaths; // 必須
+if (!locale) {
+    return Astro.redirect("/en");
+}
 const messages = getMessages(locale);
 ---
 

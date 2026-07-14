@@ -4,7 +4,7 @@ interface Props {
     item: Experience;
     locale?: string;
 }
-import { locales, getMessages, getTranslations } from "../../i18n";
+import { locales, getMessages } from "../../i18n";
 import TimeDisplay from "@/components/ui/TimeDisplay.astro";
 const { item, locale } = Astro.props;
 const messages = getMessages(locale);

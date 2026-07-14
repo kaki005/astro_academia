@@ -4,7 +4,7 @@ interface Props {
     item: Award;
     locale?: string;
 }
-import { locales, getMessages, getTranslations } from "../../i18n";
+import { getMessages } from "../../i18n";
 import TimeDisplay from "../ui/TimeDisplay.astro";
 const { item, locale } = Astro.props;
 const messages = getMessages(locale);

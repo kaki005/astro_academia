@@ -7,13 +7,14 @@ import PublicationItem from "../../components/ui/PublicationItem.astro";
 import AwardItem from "../../components/ui/AwardItem.astro";
 import EducaionItem from "../../components/ui/EducationItem.astro";
 import ExperienceItem from "../../components/ui/ExperienceItem.astro";
-import { locales, getMessages, getTranslations } from "../../i18n";
+import { locales, getMessages } from "../../i18n";
 import { _getStaticPaths, GetIntroduction } from "../../i18n";
 const { locale } = Astro.params;
+console.log("locale:", locale);
+export const getStaticPaths = _getStaticPaths; // 必須
 const messages = getMessages(locale);
 const Introduction = GetIntroduction(locale);
 import { experiences, education, publications, AWARDS } from "../../data/cv";
-export const getStaticPaths = _getStaticPaths; // 必須
 ---
 
 <Layout locale={locale}>
