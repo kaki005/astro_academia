@@ -28,9 +28,7 @@ const ogImage = websiteData?.ogImage?.[0]?.url || Noimage.src;
 const ogTitle = websiteData?.ogTitle || "タイトルの取得に失敗しました";
 const ogDescription = websiteData?.ogDescription || "";
 ---
-<div
-    class="card bg-base-100 relative mb-0 flex-1 shadow-lg border rounded-base"
->
+<div class="card bg-base-100 relative mb-0 flex-1 shadow-lg border rounded-base">
     <a href={blog.URL}>
         <figure class="p-2 rounded">
             <img src={ogImage} alt="" />
@@ -71,13 +69,16 @@ const ogDescription = websiteData?.ogDescription || "";
                     height="24"
                     fill="none"
                     viewBox="0 0 24 24"
-                    ><path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"></path></svg
-                >
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 12H5m14 0-4 4m4-4-4-4">
+                        </path>
+                </svg>
             </a>
+        </div>
     </div>
 </div>

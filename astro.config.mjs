@@ -12,7 +12,10 @@ export default defineConfig({
     i18n: {
         defaultLocale: template.default_lang,
         locales: ["en", "ja"],
-        routing: { prefixDefaultLocale: true }
+        routing: {
+            prefixDefaultLocale: true,     // デフォルト言語にも /ja を付ける
+            redirectToDefaultLocale: true, // ⭐ルート (/) から /ja へ自動リダイレクトする
+        }
     },
     vite: {
         plugins: [tailwind()],
