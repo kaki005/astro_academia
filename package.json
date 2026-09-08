@@ -27,5 +27,8 @@
   },
   "devDependencies": {
     "@catppuccin/daisyui": "^2.1.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
   }
 }
